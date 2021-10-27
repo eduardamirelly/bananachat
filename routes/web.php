@@ -27,3 +27,17 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+
+
+//Routes Temp (Tests Templates - VueJS)
+
+//Rodar o código JS em tempo real no navegador
+//npm run watch
+
+Route::get('/ltemplate', function () {
+    return Inertia::render('login_template');
+});
+
+Route::get('/rtemplate', function () {
+    return Inertia::render('register_template');
+});
