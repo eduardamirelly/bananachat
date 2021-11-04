@@ -16,6 +16,8 @@ class CreateParticipantTable extends Migration
         Schema::create('participant', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('chat_id')->references('id')->on('chats');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 

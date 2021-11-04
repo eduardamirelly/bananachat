@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
             $table->timestamps();
             $table->string('description');
             $table->string('srcProfileGroup');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('creator_user_id')->references('id')->on('users');
             //isso aqui era pra ser a PK da table
             $table->foreignId('chat_id')->references('id')->on('chats');
         });
