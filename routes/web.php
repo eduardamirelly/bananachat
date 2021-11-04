@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +16,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+//Index do site
+Route::get('/', [PageController::class, 'welcome'])->name('welcome');
+
+//Para acessar precisa estar autenticado no sistema de usuários
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+});
 
 
 //Routes Temp (Tests Templates - VueJS)
