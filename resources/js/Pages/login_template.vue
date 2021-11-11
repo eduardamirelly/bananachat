@@ -1,18 +1,19 @@
 <template>
     
-    <Head title="Log in" />
+    <Head>
+        <title>BananaChat | Login</title>
+        <link rel="icon" href="/assets/logo-bananachat.png">
+    </Head>
 
-    <div class="flex flex-row justify-center">
+    <div class="flex flex-row justify-center items-center bg-ye-light h-screen font-poppins">
 
-        <div class="flex flex-row items-center">
-            <img src="https://candogeat.net/wp-content/uploads/2019/07/can-dog-eat-bananas.jpg" 
-            alt="auau banana"
-            class="md:visible invisible">
+        <div class="w-2/6 h-4/5 lg:shadow-lg hidden lg:block">
+            <img :src="'/assets/banana-min.jpg'" class="w-full rounded-l-md object-cover h-full">
         </div>
 
         
-        <!--- Login container --->
-        <jet-authentication-card class="flex flex-row ">
+        <!-- Login container -->
+        <div class="flex flex-col justify-center py-6 px-8 w-5/6 lg:w-2/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md lg:rounded-r-md lg:rounded-l-none shadow-lg">
 
             <jet-validation-errors class="mb-4" />
 
@@ -20,83 +21,59 @@
                 {{ status }}
             </div>
 
-            <p class="text-2xl mt-20 mb-7">
+            <p class="font-semibold text-3xl text-whi-yellow">
                 Entrar
             </p>
 
             <form @submit.prevent="submit">
-                    
-                <div>
-                    <!--- <jet-label for="email" value="Email" /> --->
-                    <jet-input id="email" placeholder="E-mail" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+                <div> <!-- Email -->
+                    <input id="email" placeholder="Usuário ou e-mail" type="email" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
                 </div>
-
-                <div class="mt-4">
-                    <!--- <jet-label for="password" value="Password" /> --->
-                    <jet-input id="password" placeholder="Senha" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+                <div> <!-- Senha -->
+                    <input id="password" placeholder="Senha" type="password" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.password" required autocomplete="current-password" />
                 </div>
-
                 <div class="justify-start">
-
-                    <jet-button class="mt-6 sm:w-1/4 w-2/6" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        <p class="sm:ml-3 ml-4">
+                    <button class="mt-4 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        <p class="text-whi-yellow font-semibold text-lg">
                             Login
                         </p>
-                    </jet-button>
-
-                    <p class="mt-5">
+                    </button>
+                    <p class="mt-6 text-whi-yellow text-sm">
                         Não tem conta? 
-                        <a :href="route('register')">
+                        <a class="text-whi-opaque" :href="route('register')">
                                 Registre-se
                         </a>
                     </p>
-
-                    <p class="mt-2">
+                    <p class="mt-3 text-whi-yellow text-sm">
                         Esqueceu sua senha? 
-                        <a :href="route('password.request')">
+                        <a class="text-whi-opaque" :href="route('password.request')">
                             Clique aqui
                         </a>
                     </p>
-
-                    <p class="mt-20 mb-5">
-                        Sobre o 
-                        <a href="">
-                            Banana Chat
-                        </a>
-                    </p>
-
                 </div>
             </form>
-        </jet-authentication-card>
+            <p class="mt-10 text-whi-yellow text-sm">
+                Sobre o 
+                <a class="text-whi-opaque" href="">
+                    Banana Chat
+                </a>
+            </p>
+        </div>
     </div>
 </template>
 
 <script>
     import { defineComponent } from 'vue'
-    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
-    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetCheckbox from '@/Jetstream/Checkbox.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
     import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-    import { Head, Link } from '@inertiajs/inertia-vue3';
+    import { Head } from '@inertiajs/inertia-vue3';
 
     export default defineComponent({
         components: {
             Head,
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
-            JetButton,
-            JetInput,
-            JetCheckbox,
-            JetLabel,
             JetValidationErrors,
-            Link,
         },
 
         props: {
-            canResetPassword: Boolean,
             status: String
         },
 

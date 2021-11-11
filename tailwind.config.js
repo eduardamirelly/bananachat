@@ -13,10 +13,32 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                'poppins': ['Poppins', 'sans-serif'],
+                // sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            },
+            colors:{
+                gr:{
+                    'light': '#AEC15D',
+                    'medium': '#79A617',
+                    'dark': '#4B7312',
+                },
+                ye:{
+                    'light': '#E8C16F',
+                    'medium': '#E3AD46',
+                    'golden': '#F2B705',
+                },
+                bro:{
+                    'dark': '#8C4E03',
+                    'medium': '#DA8E04',
+                },
+                whi:{
+                    'yellow': '#F1E3B6',
+                    'opaque': '#F0E5D5',
+                },
             },
         },
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
+
