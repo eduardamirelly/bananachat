@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-height: 650px) {
+    #content-block{
+        min-height: 600px;
+    }
+    .content{
+        height: 500px;
+    }
+    .content-register{
+        height: 550px;
+    }
+}
+
+@media screen and (min-height: 1200px) {
+    .content{
+        height: 60%;
+        width: 40% !important;
+    }
+}
