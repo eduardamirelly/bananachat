@@ -13,6 +13,9 @@
     .content{
         height: 500px;
     }
+    .content-register{
+        height: 550px;
+    }
 }
 
 @media screen and (min-height: 1200px) {
