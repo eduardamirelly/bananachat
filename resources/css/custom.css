@@ -4,10 +4,20 @@
     box-sizing: border-box;
 }
 
- /* LOGIN TEMPLATE */
-div img{
-    object-fit: cover;
-    height: 70%;
-    width: 80%;
-    
+/* MEDIA QUERIES */
+
+@media screen and (max-height: 650px) {
+    #content-block{
+        min-height: 600px;
+    }
+    .content{
+        height: 500px;
+    }
+}
+
+@media screen and (min-height: 1200px) {
+    .content{
+        height: 60%;
+        width: 40% !important;
+    }
 }

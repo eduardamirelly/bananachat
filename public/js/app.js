@@ -25803,14 +25803,15 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_3 = {
+  id: "content-block",
   "class": "flex flex-row justify-center items-center bg-ye-light h-screen font-poppins"
 };
 var _hoisted_4 = {
-  "class": "w-2/6 h-4/5 lg:shadow-lg hidden lg:block"
+  "class": "content w-2/6 h-4/5 lg:shadow-lg hidden lg:block"
 };
 var _hoisted_5 = ["src"];
 var _hoisted_6 = {
-  "class": "flex flex-col justify-center py-6 px-8 w-5/6 lg:w-2/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md lg:rounded-r-md lg:rounded-l-none shadow-lg"
+  "class": "content flex flex-col justify-center py-6 px-8 w-5/6 lg:w-2/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md lg:rounded-r-md lg:rounded-l-none shadow-lg"
 };
 var _hoisted_7 = {
   key: 0,
@@ -25854,7 +25855,7 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "mt-10 text-whi-yellow text-sm"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sobre o "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "text-whi-opaque",
-  href: ""
+  href: "#"
 }, " Banana Chat ")], -1
 /* HOISTED */
 );
