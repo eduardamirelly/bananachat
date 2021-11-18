@@ -34,10 +34,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Rodar o código JS em tempo real no navegador
 //npm run watch
 
-Route::get('/ltemplate', function () {
-    return Inertia::render('login_template');
+Route::get('/ftemplate', function () {
+    return Inertia::render('forgot_passaword');
 });
 
 Route::get('/rtemplate', function () {
-    return Inertia::render('register_template');
+    return Inertia::render('reset_password');
 });
