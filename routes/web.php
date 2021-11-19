@@ -41,3 +41,7 @@ Route::get('/ftemplate', function () {
 Route::get('/rtemplate', function () {
     return Inertia::render('reset_password');
 });
+
+Route::get('/chat', function () {
+    return Inertia::render('chat_dashboard');
+});
