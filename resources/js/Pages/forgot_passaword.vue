@@ -20,7 +20,7 @@
             <form @submit.prevent="submit">
                 
                 <div>
-                    <input id="email" placeholder="E-mail" type="email" class="mt-32 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
+                    <input id="email" placeholder="E-mail" type="email" class="mt-28 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
                 </div>
 
                 <p class="font-regular text-base text-justify mt-20 text-whi-yellow">
