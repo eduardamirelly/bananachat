@@ -1,36 +1,50 @@
 <template>
-    <Head title="Reset Password" />
+    <Head>
+        <title>Resetar Senha</title>
+        <link rel="icon" href="/assets/logo-bananachat.png">
+    </Head>
 
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+    <div id="content-block" class="flex flex-row justify-center items-center bg-ye-light h-screen font-poppins">
 
         <jet-validation-errors class="mb-4" />
 
-        <form @submit.prevent="submit">
-            <div>
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
-            </div>
+        <div class="content w-2/6 h-4/5 lg:shadow-lg hidden lg:block">
+            <img :src="'/assets/banana-min.jpg'" class="w-full rounded-l-md object-cover h-full">
+        </div>
 
-            <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
-            </div>
+        <div class="content flex flex-col justify-center py-6 px-8 w-5/6 lg:w-2/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md lg:rounded-r-md lg:rounded-l-none shadow-lg">
+            
+            <p class="font-semibold text-3xl text-whi-yellow">
+                Redefinir senha
+            </p>  
+            
+            <form @submit.prevent="submit">
+                <div class="mt-4">
+                    <input id="email" type="email" placeholder="E-mail" class="mt-16 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
+                </div>
 
-            <div class="mt-4">
-                <jet-label for="password_confirmation" value="Confirm Password" />
-                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
-            </div>
+                <div class="mt-4">
+                    <input id="password" type="password" placeholder="Senha" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.password" required autocomplete="new-password" />
+                </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Reset Password
-                </jet-button>
-            </div>
-        </form>
-    </jet-authentication-card>
+                <div class="mt-4">
+                    <input id="password_confirmation" type="password" placeholder="Confirmar senha" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.password_confirmation" required autocomplete="new-password" />
+                </div>
+
+                <button class="mt-14 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <p class="text-whi-yellow font-semibold text-lg">
+                        Confirmar
+                    </p>
+                </button>
+            </form>
+            <p class="mt-14 text-whi-yellow text-sm">
+                Sobre o 
+                <a class="text-whi-opaque" href="#">
+                    Banana Chat
+                </a>
+            </p>
+        </div>
+    </div>
 </template>
 
 <script>
