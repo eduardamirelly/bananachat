@@ -54,7 +54,7 @@
             </form>
             <p class="mt-10 text-whi-yellow text-sm">
                 Sobre o 
-                <a class="text-whi-opaque" href="#">
+                <a class="text-whi-opaque hover:text-gr-light" href="#">
                     Banana Chat
                 </a>
             </p>

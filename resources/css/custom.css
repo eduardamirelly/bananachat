@@ -4,6 +4,38 @@
     box-sizing: border-box;
 }
 
+.height-9{
+    height: 9%;
+}    
+
+.height-10{
+    height: 10%;
+}
+
+.height-81{
+    height: 81%;
+}
+
+/* width */
+.scroll-base::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+.scroll-base::-webkit-scrollbar-track {
+    background: #744102; 
+}
+   
+/* Handle */
+.scroll-base::-webkit-scrollbar-thumb {
+    background: #583001; 
+}
+  
+  /* Handle on hover */
+.scroll-base::-webkit-scrollbar-thumb:hover {
+    background: #311B01; 
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-height: 650px) {
