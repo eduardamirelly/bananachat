@@ -20,7 +20,7 @@
             
             <form @submit.prevent="submit">
                 <div class="mt-4">
-                    <input id="email" type="email" placeholder="E-mail" class="mt-16 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
+                    <input id="email" type="email" placeholder="E-mail" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
                 </div>
 
                 <div class="mt-4">
@@ -31,15 +31,15 @@
                     <input id="password_confirmation" type="password" placeholder="Confirmar senha" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.password_confirmation" required autocomplete="new-password" />
                 </div>
 
-                <button class="mt-14 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <button class="mt-4 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     <p class="text-whi-yellow font-semibold text-lg">
                         Confirmar
                     </p>
                 </button>
             </form>
-            <p class="mt-14 text-whi-yellow text-sm">
+            <p class="mt-10 text-whi-yellow text-sm">
                 Sobre o 
-                <a class="text-whi-opaque" href="#">
+                <a class="text-whi-opaque hover:text-gr-light" href="#">
                     Banana Chat
                 </a>
             </p>

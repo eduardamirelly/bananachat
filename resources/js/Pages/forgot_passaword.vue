@@ -14,21 +14,21 @@
             </div>
 
             <p class="font-semibold text-3xl text-whi-yellow">
-                Redefinir senha
+                Verificação de E-mail
             </p>    
 
             <form @submit.prevent="submit">
                 
-                <div>
-                    <input id="email" placeholder="E-mail" type="email" class="mt-28 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
-                </div>
-
-                <p class="font-regular text-base text-justify mt-20 text-whi-yellow">
-                    Verifique seu E-mail para continuar a redefinição de senha.
+                <p class="font-regular text-sm text-justify mt-6 text-whi-yellow">
+                    Verifique seu email para autorizar a redefinição de senha
                 </p>
 
-                <div class="flex items-center justify-end mt-4">
-                    <button class="mt-12 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <div>
+                    <input id="email" placeholder="E-mail" type="email" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
+                </div>
+
+                <div class="flex items-center mt-4">
+                    <button class="bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         <p class="text-whi-yellow font-semibold text-lg">
                             Confirmar
                         </p>
@@ -37,7 +37,7 @@
             </form>
             <p class="mt-10 text-whi-yellow text-sm">
                 Sobre o 
-                <a class="text-whi-opaque" href="#">
+                <a class="text-whi-opaque hover:text-gr-light" href="#">
                     Banana Chat
                 </a>
             </p>
