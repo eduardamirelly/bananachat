@@ -74,21 +74,20 @@ Features::termsAndPrivacyPolicy()
 Features::profilePhotos()
 ```
 
-Criar link para o storage
-```php
-php artisan storage:link
-```
-
 Fazer modificações no arquivo ```User.php```
 
 ANTES
 ```php
 class User extends Authenticatable
 ```
-
 DEPOIS
 ```php
 class User extends Authenticatable implements MustVerifyEmail
+```
+
+Criar link para o storage
+```php
+php artisan storage:link
 ```
 
 Por fim, limpe o cache das configurações
