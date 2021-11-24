@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PageController;
+use App\Mail\UserRegisteredMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,8 @@ Route::get('/rtemplate', function () {
 
 Route::get('/chat', function () {
     return Inertia::render('chat_dashboard');
+});
+
+Route::get('/email', function () {
+    return new UserRegisteredMail();
 });
