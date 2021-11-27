@@ -1,13 +1,35 @@
 @component('mail::message')
-# Olá!
 
-Por favor clique no botão abaixo para verificar seu endereço de e-mail
-### [Se você não criou nenhuma conta, ignore este e-mail]
+{{-- Intro Lines --}}
+@foreach ($introLines as $line)
+{{ $line }}
 
-@component('mail::button', ['url' => ''])
-Verifique seu e-mail
+@endforeach
+
+@component('mail::button', ['url' => $actionUrl])
+{{ $actionText }}
 @endcomponent
 
 Obrigada,<br>
 {{ config('app.name') }}
+
+{{-- Outro Lines --}}
+@foreach ($outroLines as $line)
+{{ $line }}
+
+@endforeach
+
+{{-- Subcopy --}}
+@isset($actionText)
+@slot('subcopy')
+@lang(
+    "Se o botão \":actionText\" não estiver funcionando, copie e cole esse link\n".
+    'no seu navegador:',
+    [
+        'actionText' => $actionText,
+    ]
+) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
+@endslot
+@endisset
+
 @endcomponent
