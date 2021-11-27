@@ -30,6 +30,7 @@ module.exports = {
                 bro:{
                     'dark': '#8C4E03',
                     'medium': '#DA8E04',
+                    'darker': '#583001',
                 },
                 whi:{
                     'yellow': '#F1E3B6',
