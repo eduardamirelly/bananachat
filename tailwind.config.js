@@ -16,10 +16,13 @@ module.exports = {
                 'poppins': ['Poppins', 'sans-serif'],
                 // sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-            colors:{
+            fontSize: {
+                'xx': '.65rem',
+            },
+            colors: {
                 gr:{
                     'light': '#AEC15D',
-                    'medium': '#79A617',
+                    'medium': '#85AA35',
                     'dark': '#4B7312',
                 },
                 ye:{
@@ -30,6 +33,7 @@ module.exports = {
                 bro:{
                     'dark': '#8C4E03',
                     'medium': '#DA8E04',
+                    'darker': '#583001',
                 },
                 whi:{
                     'yellow': '#F1E3B6',
