@@ -1584,12 +1584,12 @@ video {
 }.hover\:bg-bro-darker:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(88, 48, 1, var(--tw-bg-opacity));
-}.hover\:bg-gr-medium:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(133, 170, 53, var(--tw-bg-opacity));
 }.hover\:bg-gr-dark:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(75, 115, 18, var(--tw-bg-opacity));
+}.hover\:bg-gr-medium:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(133, 170, 53, var(--tw-bg-opacity));
 }.hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -1677,9 +1677,6 @@ video {
 }.focus\:ring-whi-yellow:focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(241, 227, 182, var(--tw-ring-opacity));
-}.focus\:ring-gr-light:focus{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgba(174, 193, 93, var(--tw-ring-opacity));
 }.focus\:ring-ye-medium:focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(227, 173, 70, var(--tw-ring-opacity));
