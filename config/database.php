@@ -93,7 +93,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_URI', 'mongodb+srv://username:password@<atlas-cluster-uri>/myappdb?retryWrites=true&w=majority'),
+            'dsn' => env('DB_URI', 'mongodb+srv://deploy:23450011@bananachat.3eo9z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'),
             'database' => 'bananachat',
         ],
 
