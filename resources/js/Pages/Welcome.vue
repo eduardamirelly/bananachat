@@ -1,5 +1,9 @@
 <template>
-    <Head title="Welcome" />
+    <Head>
+        <title>BananaChat | Welcome</title>
+        <link rel="icon" href="/assets/logo-bananachat.png">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    </Head>
 
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
         <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
