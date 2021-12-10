@@ -1,9 +1,5 @@
 <template>
-    <Head>
-        <title>BananaChat | Login</title>
-        <link rel="icon" href="/assets/logo-bananachat.png">
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    </Head>
+    <Head title="Log in" />
 
     <jet-authentication-card>
         <template #logo>

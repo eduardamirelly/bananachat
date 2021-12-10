@@ -1,6 +1,10 @@
 <template>
     <div>
-        <Head :title="title" />
+        <Head>
+            <title>BananaChat</title>
+            <link rel="icon" href="/assets/logo-bananachat.png">
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        </Head>
 
         <jet-banner />
 
