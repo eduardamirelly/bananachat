@@ -53,6 +53,10 @@ Route::get('/welcome', function(){
     return Inertia::render('Welcome');
 });
 
+Route::get('/remail', function () {
+    return Inertia::render('resend_email');
+});
+
 // Route::get('send', function () {
    
 //     $details = [
