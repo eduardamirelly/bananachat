@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PageController;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\UserRegisteredMail;
 
 /*
@@ -47,3 +48,23 @@ Route::get('/chat', function () {
 Route::get('/email', function () {
     return new UserRegisteredMail();
 });
+
+Route::get('/welcome', function(){
+    return Inertia::render('Welcome');
+});
+
+Route::get('/remail', function () {
+    return Inertia::render('resend_email');
+});
+
+// Route::get('send', function () {
+   
+//     $details = [
+//         'title' => 'Mail from ItSolutionStuff.com',
+//         'body' => 'This is for testing email using smtp'
+//     ];
+   
+//     Mail::to('bananachatsystem@gmail.com')->send(new UserRegisteredMail($details));
+   
+//     dd("Email is Sent.");
+// });
