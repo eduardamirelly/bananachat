@@ -49,6 +49,10 @@ Route::get('/email', function () {
     return new UserRegisteredMail();
 });
 
+Route::get('/welcome', function(){
+    return Inertia::render('Welcome');
+});
+
 Route::get('/remail', function () {
     return Inertia::render('resend_email');
 });
