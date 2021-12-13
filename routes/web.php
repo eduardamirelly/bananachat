@@ -33,29 +33,17 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 //Rodar o código JS em tempo real no navegador
 //npm run watch
 
-Route::get('/ftemplate', function () {
-    return Inertia::render('forgot_passaword');
-});
+Route::get('/login-user', [PageController::class, 'login_user'])->name('login_user');
 
-Route::get('/rtemplate', function () {
-    return Inertia::render('reset_password');
-});
+Route::get('/register-user', [PageController::class, 'register_user'])->name('register_user');
 
-Route::get('/chat', function () {
-    return Inertia::render('chat_dashboard');
-});
+Route::get('/forgot-password-user', [PageController::class, 'forgot_password_user'])->name('forgot_password_user');
 
-Route::get('/email', function () {
-    return new UserRegisteredMail();
-});
+Route::get('/resend-email-user', [PageController::class, 'resend_email_user'])->name('resend_email_user');
 
-Route::get('/welcome', function(){
-    return Inertia::render('Welcome');
-});
+Route::get('/reset-password-user', [PageController::class, 'reset_password_user'])->name('reset_password_user');
 
-Route::get('/remail', function () {
-    return Inertia::render('resend_email');
-});
+Route::get('/chat', [PageController::class, 'chat'])->name('chat');
 
 // Route::get('send', function () {
    

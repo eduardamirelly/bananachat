@@ -18,12 +18,12 @@
             </div>
 
             <div class="flex sm:justify-end sm:items-center sm:mr-20 gap-x-4 bananachat_nav_welcome">
-                <a :href="route('login')" class="flex items-center text-sm hover:text-gr-medium" id="w400">
+                <a :href="route('login_user')" class="flex items-center text-sm hover:text-gr-medium" id="w400">
                     <i class="material-icons mr-1">account_circle</i>
                     <p class="flex">Login</p> 
                 </a>
 
-                <a :href="route('register')" class="flex items-center text-sm hover:text-gr-medium" id="w400">
+                <a :href="route('register_user')" class="flex items-center text-sm hover:text-gr-medium" id="w400">
                     <p class="flex">Register</p>
                 </a>
             </div>

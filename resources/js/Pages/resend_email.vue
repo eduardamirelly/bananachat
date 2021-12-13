@@ -31,7 +31,7 @@
                 </div>
                 <p class="mt-6 text-xs text-whi-yellow">
                     Sobre o 
-                    <a class="text-whi-opaque" href="#">
+                    <a class="text-whi-opaque" :href="route('welcome')">
                         Banana Chat
                     </a>
                 </p>

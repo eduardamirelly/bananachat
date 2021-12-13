@@ -1796,8 +1796,6 @@ video {
 		margin-left: 2.5rem;
 	}.sm\:ml-6{
 		margin-left: 1.5rem;
-	}.sm\:ml-0{
-		margin-left: 0px;
 	}.sm\:ml-20{
 		margin-left: 5rem;
 	}.sm\:mr-20{
@@ -1810,8 +1808,6 @@ video {
 		display: none;
 	}.sm\:h-10{
 		height: 2.5rem;
-	}.sm\:h-20{
-		height: 5rem;
 	}.sm\:h-24{
 		height: 6rem;
 	}.sm\:w-10{
@@ -1892,8 +1888,6 @@ video {
 		padding-bottom: 1rem;
 	}.sm\:text-left{
 		text-align: left;
-	}.sm\:text-right{
-		text-align: right;
 	}
 }@media (min-width: 768px){.md\:col-span-2{
 		grid-column: span 2 / span 2;

@@ -24,7 +24,7 @@
             <p class="font-semibold text-3xl text-whi-yellow">
                 Entrar
             </p>
-
+            
             <form @submit.prevent="submit">
                 <div> <!-- Email -->
                     <input id="email" placeholder="Usuário ou e-mail" type="email" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
@@ -40,13 +40,14 @@
                     </button>
                     <p class="mt-6 text-whi-yellow text-sm">
                         Não tem conta? 
-                        <a class="text-whi-opaque" :href="route('register')">
+                        <a class="text-whi-opaque" :href="route('register_user')">
                                 Registre-se
                         </a>
                     </p>
                     <p class="mt-3 text-whi-yellow text-sm">
                         Esqueceu sua senha? 
-                        <a class="text-whi-opaque" :href="route('password.request')">
+                        <!-- <a class="text-whi-opaque" :href="route('password.request')"> -->
+                        <a class="text-whi-opaque" :href="route('resend_email_user')">
                             Clique aqui
                         </a>
                     </p>
@@ -54,7 +55,7 @@
             </form>
             <p class="mt-10 text-whi-yellow text-sm">
                 Sobre o 
-                <a class="text-whi-opaque hover:text-gr-light" href="#">
+                <a class="text-whi-opaque hover:text-gr-light" :href="route('welcome')">
                     Banana Chat
                 </a>
             </p>

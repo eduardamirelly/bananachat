@@ -30,7 +30,7 @@
                     <input id="password_confirmation" placeholder="Confirmar Senha" type="password" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.password_confirmation" required autocomplete="new-password" />
                 </div>
 
-                <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
+                <!-- <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
                     <jet-label for="terms">
                         <div class="flex items-center">
                             <jet-checkbox name="terms" id="terms" v-model:checked="form.terms" />
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </jet-label>
-                </div>
+                </div> -->
                 
                 <button class="mt-4 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     <p class="text-whi-yellow font-semibold text-lg">
@@ -49,7 +49,7 @@
                 </button>
                 <p class="mt-10 text-whi-yellow text-sm">
                     Sobre o 
-                    <a class="text-whi-opaque" href="#">
+                    <a class="text-whi-opaque" :href="route('welcome')">
                         Banana Chat
                     </a>
                 </p>
