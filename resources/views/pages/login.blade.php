@@ -31,10 +31,10 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div> <!-- Email -->
-                    <input id="email" placeholder="Usuário ou e-mail" type="email" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.email" required autofocus />
+                    <input id="email" placeholder="Usuário ou e-mail" type="email" name="email" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus />
                 </div>
                 <div> <!-- Senha -->
-                    <input id="password" placeholder="Senha" type="password" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" v-model="form.password" required autocomplete="current-password" />
+                    <input id="password" placeholder="Senha" type="password" name="password" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autocomplete="current-password" />
                 </div>
                 <div class="justify-start">
                     <button class="mt-4 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" type="submit">
@@ -55,13 +55,16 @@
                         </a>
                     @endif --}}
 
-                    <p class="mt-3 text-whi-yellow text-sm">
-                        Esqueceu sua senha? 
-                        <!-- <a class="text-whi-opaque" href="route('password.request')"> -->
-                        <a class="text-whi-opaque" href="#">
-                            Clique aqui
-                        </a>
-                    </p>
+                    @if (Route::has('password.request'))
+                        <p class="mt-3 text-whi-yellow text-sm">
+                            Esqueceu sua senha? 
+                            <a class="text-whi-opaque" href="{{ route('password.request') }}">
+                                Clique aqui
+                            </a>
+                        </p>
+                    @endif
+
+                    
                 </div>
             </form>
             <p class="mt-10 text-whi-yellow text-sm">

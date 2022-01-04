@@ -20,7 +20,7 @@
                 @csrf
 
                 <div>
-                    <input id="name" placeholder="Usuário" :value="old('name')" type="text" name="username" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus autocomplete="name" />
+                    <input id="name" placeholder="Usuário" :value="old('name')" type="text" name="name" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus autocomplete="name" />
                 </div>
 
                 <div class="mt-4">
