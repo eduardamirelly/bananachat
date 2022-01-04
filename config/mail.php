@@ -29,7 +29,7 @@ return [
     | mailers below. You are free to add additional mailers as required.
     |
     | Supported: "smtp", "sendmail", "mailgun", "ses",
-    |            "postmark", "log", "array"
+    |            "postmark", "log", "array", "failover"
     |
     */
 
@@ -59,7 +59,7 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
-            'path' => '/usr/sbin/sendmail -bs',
+            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -t -i'),
         ],
 
         'log' => [
@@ -91,17 +91,9 @@ return [
     |
     */
 
-    'stream'=>[
-        'ssl'=>[
-            'allow_self_signed'=>true,
-            'verify_peer'=>false,
-            'verify_peer_name'=>false,
-        ]
-    ],
-
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'bananachatsystem@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'BANANACHAT'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
     /*
