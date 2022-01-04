@@ -17,13 +17,13 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-// Route::get('/login', function () {
-//     return view('pages.login');
-// })->name('login');
+Route::get('/login', function () {
+    return view('pages.login');
+})->name('login');
 
-// Route::get('/register', function () {
-//     return view('pages.register');
-// })->name('register');
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('register');
 
 Route::get('/resend', function () {
     return view('pages.resend-email');

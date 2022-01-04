@@ -30,6 +30,7 @@
             
             <form method="POST" action="{{ route('login') }}">
                 @csrf
+                
                 <div> <!-- Email -->
                     <input id="email" placeholder="Usuário ou e-mail" type="email" name="email" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus />
                 </div>

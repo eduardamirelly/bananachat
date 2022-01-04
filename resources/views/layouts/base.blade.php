@@ -8,7 +8,6 @@
     <link rel="icon" href="/assets/logo-bananachat.png">
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     
