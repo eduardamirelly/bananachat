@@ -22,6 +22,7 @@ module.exports = {
                     'light': '#AEC15D',
                     'medium': '#85AA35',
                     'dark': '#4B7312',
+                    'whi': '#000000',
                 },
                 ye:{
                     'light': '#E8C16F',

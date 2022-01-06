@@ -21,7 +21,15 @@
                 </div>
                 <div class="flex align-content-end items-center">
                     <div class="mr-6"><a href="#"><img class="w-4/5" src="/assets/chat_logo.svg"></a></div>
-                    <div><a href="#"><img class="w-4/5" src="/assets/menu.svg"></a></div>
+                    <div>
+                        <form method="post" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                                <img class="w-4/5" src="/assets/menu.svg">
+                            </a>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="flex height-9 px-8 py-4 shadow relative">
@@ -201,45 +209,40 @@
                 </div>
             </div>
             <div class="w-11/12 h-5/6 mt-4 mb-4 overflow-y-scroll scroll-chat">
-                <div class="flex flex-col mx-2">
-                    <div class="max-w-sm bg-gr-medium text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-bl-none">
-                        <p class="text-xs text-whi-opaque font-medium mb-1">User #01</p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id libero ut nisl suscipit dignissim et in velit. Nam id magna condimentum, condimentum elit et, tincidunt arcu. Vivamus ac feugiat mauris. Vestibulum vitae pretium ex, vel gravida orci. Maecenas faucibus sagittis velit vel ultrices. Fusce feugiat elit hendrerit libero sollicitudin, ac condimentum nisl molestie. Sed mi odio, varius id mollis tempus, elementum at ex. Donec rutrum fermentum neque, vel interdum dolor sollicitudin at. Donec a elit vehicula, commodo erat vel, efficitur sem. Vestibulum aliquam quis risus vitae sagittis.
-                        <p class="text-xx text-whi-opaque self-end mt-1">20:00</p>
+                {{-- @foreach ($messages as $message)
+                    <div class="flex flex-col mx-2">
+                        <div class="max-w-sm bg-gr-medium text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-bl-none">
+                            <p class="text-xs text-whi-opaque font-medium mb-1">User #01</p>
+                            {{ $message->content }}
+                            <p class="text-xx text-whi-opaque self-end mt-1">20:00</p>
+                        </div>
                     </div>
-                    <div class="self-end max-w-sm bg-gr-dark text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-br-none">
-                        <p class="text-xs text-whi-opaque font-medium mb-1">User #01</p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id libero ut nisl suscipit dignissim et in velit. Nam id magna condimentum, condimentum elit et, tincidunt arcu. Vivamus ac feugiat mauris. Vestibulum vitae pretium ex, vel gravida orci. Maecenas faucibus sagittis velit vel ultrices. Fusce feugiat elit hendrerit libero sollicitudin, ac condimentum nisl molestie. Sed mi odio, varius id mollis tempus, elementum at ex. Donec rutrum fermentum neque, vel interdum dolor sollicitudin at. Donec a elit vehicula, commodo erat vel, efficitur sem. Vestibulum aliquam quis risus vitae sagittis.
-                        <p class="text-xx text-whi-opaque self-end mt-1">20:00</p>
+                @endforeach --}}
+
+                @foreach ($messages as $message)
+                    <div class="flex flex-col mx-2">
+                        <div class="self-end max-w-sm bg-gr-dark text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-br-none">
+                            <p class="text-xs text-whi-opaque font-medium mb-1">{{ $message->from_name }}</p>
+                            {{ $message->content }}
+                            <p class="text-xx text-whi-opaque self-end mt-1">{{ date_format($message->created_at, 'd/m/Y H:i') }}</p>
+                        </div>
                     </div>
-                    <div class="self-end max-w-sm bg-gr-dark text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-br-none">
-                        <p class="text-xs text-whi-opaque font-medium mb-1">User #01</p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id libero ut nisl suscipit dignissim et in velit. Nam id magna condimentum, condimentum elit et, tincidunt arcu. Vivamus ac feugiat mauris.Donec a elit vehicula, commodo erat vel, efficitur sem. Vestibulum aliquam quis risus vitae sagittis.
-                        <p class="text-xx text-whi-opaque self-end mt-1">20:00</p>
-                    </div>
-                    <div class="self-end max-w-sm bg-gr-dark text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-br-none">
-                        <p class="text-xs text-whi-opaque font-medium mb-1">User #01</p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id libero ut nisl suscipit dignissim et in velit. Nam id magna condimentum, condimentum elit et, tincidunt arcu. Vivamus ac feugiat mauris.
-                        <p class="text-xx text-whi-opaque self-end mt-1">20:00</p>
-                    </div>
-                    <div class="max-w-sm bg-gr-medium text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-bl-none">
-                        <p class="text-xs text-whi-opaque font-medium mb-1">User #01</p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id libero ut nisl suscipit dignissim et in velit. Nam id magna condimentum, condimentum elit et, tincidunt arcu. Vivamus ac feugiat mauris. Vestibulum vitae pretium ex, vel gravida orci. Maecenas faucibus sagittis velit vel ultrices. Fusce feugiat elit hendrerit libero sollicitudin, ac condimentum nisl molestie. Sed mi odio, varius id mollis tempus, elementum at ex. Donec rutrum fermentum neque, vel interdum dolor sollicitudin at. Donec a elit vehicula, commodo erat vel, efficitur sem. Vestibulum aliquam quis risus vitae sagittis.
-                        <p class="text-xx text-whi-opaque self-end mt-1">20:00</p>
-                    </div>
-                    <div class="max-w-sm bg-gr-medium text-xs text-whi-opaque px-2.5 py-1.5 pt-2 mb-2 flex flex-col rounded-lg rounded-bl-none">
-                        <p class="text-xs text-whi-opaque font-medium mb-1">User #01</p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a elit vehicula, commodo erat vel, efficitur sem. Vestibulum aliquam quis risus vitae sagittis.
-                        <p class="text-xx text-whi-opaque self-end mt-1">20:00</p>
-                    </div>
-                </div>
+                @endforeach
+                
+
+
+                
             </div>
+            
             <div class="w-11/12 h-1/6 flex justify-center items-center">
-                <div class="w-full flex justify-between">
-                    <input class="h-11 width-textInput rounded-xl bg-ye-light text-bro-dark text-sm placeholder-bro-dark font-regular border-none focus:ring-ye-medium" type="text" name="message-input" placeholder="Digite uma mensagem...">
-                    <button class="width-send bg-bro-dark flex justify-center items-center rounded-xl mr-2 hover:bg-gr-dark"><img src="/assets/send.svg"></button>
-                </div>
+                <form style="width: 100%;" action="{{ route('create-message') }}" method="get" wire:submit.prevent="save">
+                    <div class="w-full flex justify-between">
+                        <input class="h-11 width-textInput rounded-xl bg-ye-light text-bro-dark text-sm placeholder-bro-dark font-regular border-none focus:ring-ye-medium" type="text" name="message" placeholder="Digite uma mensagem..." autocomplete="off">
+                        <button class="width-send bg-bro-dark flex justify-center items-center rounded-xl mr-2 hover:bg-gr-dark"><img src="/assets/send.svg"></button>
+                    </div>
+                </form>
             </div>
+            
         </div>
     </div>
 

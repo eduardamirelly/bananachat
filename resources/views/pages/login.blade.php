@@ -9,7 +9,7 @@
     <div id="content-block" class="flex flex-row justify-center items-center bg-ye-light h-screen font-poppins">
 
         <div class="content w-2/6 h-4/5 lg:shadow-lg hidden lg:block">
-            <img src="/assets/banana-min.jpg" class="w-full rounded-l-md object-cover h-full">
+            <img src="/assets/bananaboy.jpg" class="w-full rounded-l-md object-cover h-full">
         </div>
 
         
@@ -46,7 +46,7 @@
                     <p class="mt-6 text-whi-yellow text-sm">
                         Não tem conta? 
                         <a class="text-whi-opaque" href="{{ route('register') }}">
-                                Registre-se
+                            Registre-se
                         </a>
                     </p>
 
