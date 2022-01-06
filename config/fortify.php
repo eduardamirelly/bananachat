@@ -63,6 +63,10 @@ return [
 
     'home' => RouteServiceProvider::HOME,
 
+    // 'home' => function(){
+    //     return route('chat');
+    // },
+
     /*
     |--------------------------------------------------------------------------
     | Fortify Routes Prefix / Subdomain

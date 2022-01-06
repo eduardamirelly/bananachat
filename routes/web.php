@@ -39,13 +39,12 @@ Route::get('/reset', function () {
     return view('pages.reset-password');
 })->name('reset');
 
-Route::get('/chat', [MessageController::class, 'list_messages'])->name('chat');
-Route::get('/chat/message/create', [MessageController::class, 'create_message'])->name('create-message');
+//Route::get('/chat', [MessageController::class, 'list_messages'])->name('chat');
+//Route::get('/chat/message/create', [MessageController::class, 'create_message'])->name('create-message');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
-    Route::get('/dashboard', function(){
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [MessageController::class, 'list_messages'])->name('dashboard');
+    Route::get('/dashboard/message/create', [MessageController::class, 'create_message'])->name('create-message');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
