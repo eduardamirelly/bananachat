@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,37 +14,11 @@ use App\Http\Controllers\MessageController;
 */
 
 Route::get('/', function () {
-    return view('pages.index');
+    return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('pages.login');
-})->name('login');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/register', function () {
-    return view('pages.register');
-})->name('register');
-
-Route::get('/resend', function () {
-    return view('pages.resend-email');
-})->name('resend-mail');
-
-Route::get('/forgot', function () {
-    return view('pages.forgot-password');
-})->name('forgot');
-
-Route::get('/reset', function () {
-    return view('pages.reset-password');
-})->name('reset');
-
-//Route::get('/chat', [MessageController::class, 'list_messages'])->name('chat');
-//Route::get('/chat/message/create', [MessageController::class, 'create_message'])->name('create-message');
-
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
-    Route::get('/dashboard', [MessageController::class, 'list_messages'])->name('dashboard');
-    Route::get('/dashboard/message/create', [MessageController::class, 'create_message'])->name('create-message');
-});
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+require __DIR__.'/auth.php';

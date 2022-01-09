@@ -18,8 +18,9 @@ class CreateMessagesTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('from');
             $table->string('from_name', 200);
-            //$table->unsignedBigInteger('for');
             $table->text('content');
+            $table->unsignedBigInteger('chat_id');
+            $table->foreign('chat_id')->references('id')->on('chats');
         });
     }
 
