@@ -9,20 +9,18 @@
     <div id="content-block" class="flex flex-row justify-center items-center bg-ye-light h-screen font-poppins">
 
         <div class="content w-2/6 h-4/5 lg:shadow-lg hidden lg:block">
-            <img src="/assets/bananaboy.jpg" class="w-full rounded-l-md object-cover h-full">
+            <img src="{{ asset('assets/bananaboy.jpg') }}" class="w-full rounded-l-md object-cover h-full">
         </div>
 
         
         <!-- Login container -->
         <div class="content flex flex-col justify-center py-6 px-8 w-5/6 lg:w-2/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md lg:rounded-r-md lg:rounded-l-none shadow-lg">
 
-            <x-jet-validation-errors class="mb-4" />
+            <!-- Session Status -->
+            <x-auth-session-status class="mb-4" :status="session('status')" />
 
-            @if (session('status'))
-                <div class="mb-4 font-medium text-sm text-green-600">
-                    {{ session('status') }}
-                </div>
-            @endif
+            <!-- Validation Errors -->
+            <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
             <p class="font-semibold text-3xl text-whi-yellow">
                 Entrar
@@ -49,12 +47,6 @@
                             Registre-se
                         </a>
                     </p>
-
-                    {{-- @if (Route::has('password.request'))
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
-                        </a>
-                    @endif --}}
 
                     @if (Route::has('password.request'))
                         <p class="mt-3 text-whi-yellow text-sm">

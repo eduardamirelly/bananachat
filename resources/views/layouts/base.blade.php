@@ -7,7 +7,9 @@
     <title>BananaChat | @yield('title')</title>
     <link rel="icon" href="/assets/logo-bananachat.png">
     <link rel="stylesheet" href="/css/custom.css">
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
     
