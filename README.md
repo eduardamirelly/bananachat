@@ -21,10 +21,6 @@ Instalação dos pacotes NodeJS:
 ```javacript
 npm install
 ```
-Instalação do Jetstream
-```php
-composer require laravel/jetstream
-```
 ### Step Four
 Parâmetros do banco de dados no arquivo ```.env```
 ```
