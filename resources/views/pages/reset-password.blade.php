@@ -6,15 +6,12 @@
 
     <!-- RESET PASSWORD -->
 
-    <div id="content-block" class="flex flex-row justify-center items-center bg-ye-light h-screen font-poppins">
+    <div id="content-block" class="flex flex-row justify-center items-center bg-whi-yellow h-screen font-poppins">
 
-        <x-jet-validation-errors class="mb-4" />
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <div class="content w-2/6 h-4/5 lg:shadow-lg hidden lg:block">
-            <img src="/assets/banana-min.jpg" class="w-full rounded-l-md object-cover h-full">
-        </div>
-
-        <div class="content flex flex-col justify-center py-6 px-8 w-5/6 lg:w-2/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md lg:rounded-r-md lg:rounded-l-none shadow-lg">
+        <div class="content flex flex-col justify-center py-6 px-8 w-5/6 lg:w-3/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md shadow-lg">
             
             <p class="font-semibold text-3xl text-whi-yellow">
                 Redefinir senha

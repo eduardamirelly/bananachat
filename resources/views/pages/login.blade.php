@@ -6,15 +6,10 @@
 
     <!-- LOGIN -->
 
-    <div id="content-block" class="flex flex-row justify-center items-center bg-ye-light h-screen font-poppins">
-
-        <div class="content w-2/6 h-4/5 lg:shadow-lg hidden lg:block">
-            <img src="{{ asset('assets/bananaboy.jpg') }}" class="w-full rounded-l-md object-cover h-full">
-        </div>
-
+    <div id="content-block" class="flex flex-row justify-center items-center bg-whi-yellow font-poppin h-screen font-poppins">
         
         <!-- Login container -->
-        <div class="content flex flex-col justify-center py-6 px-8 w-5/6 lg:w-2/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md lg:rounded-r-md lg:rounded-l-none shadow-lg">
+        <div class="content flex flex-col justify-center py-6 px-8 w-5/6 lg:w-3/6 md:w-4/6 h-4/5 bg-bro-dark rounded-r-md rounded-l-md  shadow-lg">
 
             <!-- Session Status -->
             <x-auth-session-status class="mb-4" :status="session('status')" />
