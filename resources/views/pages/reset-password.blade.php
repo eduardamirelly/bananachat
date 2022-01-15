@@ -19,13 +19,20 @@
             
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf
+
+                <!-- Password Reset Token -->
+                <input type="hidden" name="token" value="{{ $request->route('token') }}">
                 
                 <div class="mt-4">
-                    <input id="password" type="password" placeholder="Senha" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autocomplete="new-password" />
+                    <input id="email" type="email" name="email" :value="old('email', $request->email)" placeholder="Email" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus />
                 </div>
 
                 <div class="mt-4">
-                    <input id="password_confirmation" type="password" placeholder="Confirmar senha" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autocomplete="new-password" />
+                    <input id="password" type="password" placeholder="Senha" name="password" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autocomplete="new-password" />
+                </div>
+
+                <div class="mt-4">
+                    <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirmar senha" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autocomplete="new-password" />
                 </div>
 
                 <button class="mt-4 bg-bro-medium py-3 px-14 rounded-md hover:bg-gr-medium" type="submit">

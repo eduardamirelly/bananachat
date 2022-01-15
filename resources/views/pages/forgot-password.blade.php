@@ -30,7 +30,7 @@
                 </p>
 
                 <div>
-                    <input id="email" placeholder="E-mail" type="email" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus />
+                    <input id="email" placeholder="E-mail" type="email" name="email" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus />
                 </div>
 
                 <div class="flex items-center mt-4">
