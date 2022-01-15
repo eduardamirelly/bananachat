@@ -1,10 +1,10 @@
 @extends('layouts.base')
 
-@section('title', 'ResendEmail')
+@section('title', 'VerifyEmail')
 
 @section('content')
 
-    <!-- RESEND EMAIL -->
+    <!-- VERIFY EMAIL -->
 
     <div  id="" class="flex flex-col justify-center items-center bg-whi-yellow h-screen font-poppins">
         <div class="items-end mb-6">
@@ -40,21 +40,21 @@
 
                     {{-- <a :href="route('logout')" method="post" as="button" class="underline text-sm mt-4 sm:mt-0 text-whi-yellow font-semibold hover:text-gr-medium">Sair</a> --}}
 
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-        
-                        <button type="submit" class="underline text-sm mt-4 sm:mt-0 text-whi-yellow font-semibold hover:text-gr-medium">
-                            {{ __('Log Out') }}
-                        </button>
-                    </form>
                 </div>
-                <p class="mt-6 text-xs text-whi-yellow">
-                    Sobre o 
-                    <a class="text-whi-opaque" :href="route('welcome')">
-                        Banana Chat
-                    </a>
-                </p>
             </form>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <button type="submit" class="underline text-sm mt-4 sm:mt-0 text-whi-yellow font-semibold hover:text-gr-medium">
+                    {{ __('Log Out') }}
+                </button>
+            </form>
+            <p class="mt-6 text-xs text-whi-yellow">
+                Sobre o 
+                <a class="text-whi-opaque" :href="route('welcome')">
+                    Banana Chat
+                </a>
+            </p>
         </div>
     </div>
 
