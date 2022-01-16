@@ -69,10 +69,10 @@
                         <a href="https://github.com/eduardamirelly" class="mt-3 text-md font-regular text-whi-opaque bg-gr-medium rounded-md hover:bg-gr-dark px-12 py-2">Github</a>
                     </div>
                     <div class="px-4 py-6 flex justify-center items-center flex-col">
-                        <img class="rounded-full w-44 h-44" src="https://suap.ifrn.edu.br/media/alunos/222781.Phir5fGSQ308.jpg" alt="profile-dev">
+                        <img class="rounded-full w-44 h-44" src="{{ asset('assets/gabriel-victor.jpeg') }}" alt="profile-dev">
                         <h5 class="text-lg text-bro-dark font-medium mt-3">Gabriel Victor</h5>
                         <p class="text-md text-bro-dark font-light">Frontend</p>
-                        <a href="#" class="mt-3 text-md font-regular text-whi-opaque bg-gr-medium rounded-md hover:bg-gr-dark px-12 py-2">Github</a>
+                        <a href="https://github.com/gabrises" class="mt-3 text-md font-regular text-whi-opaque bg-gr-medium rounded-md hover:bg-gr-dark px-12 py-2">Github</a>
                     </div>
                     <div class="px-4 py-6 flex justify-center items-center flex-col">
                         <img class="rounded-full w-44 h-44" src="https://suap.ifrn.edu.br/media/alunos/219848.kuGDjMqhntOE.jpg" alt="profile-dev">
@@ -81,10 +81,10 @@
                         <a href="#" class="mt-3 text-md font-regular text-whi-opaque bg-gr-medium rounded-md hover:bg-gr-dark px-12 py-2">Github</a>
                     </div>
                     <div class="px-4 py-6 flex justify-center items-center flex-col">
-                        <img class="rounded-full w-44 h-44" src="https://suap.ifrn.edu.br/media/alunos/221026.eb2HXdO0xRdB.jpg" alt="profile-dev">
+                        <img class="rounded-full w-44 h-44" src="{{ asset('assets/carlos-breno.jpeg') }}" alt="profile-dev">
                         <h5 class="text-lg text-bro-dark font-medium mt-3">Carlos Breno</h5>
                         <p class="text-md text-bro-dark font-light">Frontend</p>
-                        <a href="#" class="mt-3 text-md font-regular text-whi-opaque bg-gr-medium rounded-md hover:bg-gr-dark px-12 py-2">Github</a>
+                        <a href="https://github.com/carlosbreno124" class="mt-3 text-md font-regular text-whi-opaque bg-gr-medium rounded-md hover:bg-gr-dark px-12 py-2">Github</a>
                     </div>
             </div>
         </div>
