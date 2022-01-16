@@ -10,7 +10,7 @@
         <!-- NAVBAR -->
         <div class="navbar py-8 px-8 xl:px-24 flex-wrap flex justify-between items-center">
             <div class="mr-6 py-2 navbar-brand">
-                <a href="#" class="flex items-center">
+                <a href="{{ route('index') }}" class="flex items-center">
                     <img class="mr-4" src="{{ asset('assets/logo.svg') }}" alt="logo">
                     <h2 class="font-semibold text-xl text-bro-dark">BananaChat</h2>
                 </a>
