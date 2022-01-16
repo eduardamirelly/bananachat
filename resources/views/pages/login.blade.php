@@ -63,6 +63,4 @@
         </div>
     </div>
 
-    <!-- END LOGIN -->
-
 @endsection
