@@ -2,9 +2,11 @@
 
 *{
     box-sizing: border-box;
+    font-family: 'Poppins';
 }
 body{
     background-color: #F1E3B6;
+    min-height: 100vh;
 }
 img{
     object-fit: cover;

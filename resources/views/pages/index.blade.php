@@ -26,12 +26,12 @@
                     </a>
                 </li>
                 <li>
-                    <a class="text-md uppercase font-regular text-bro-dark py-2 hover:border-solid hover:border-bro-dark hover:border-b-2" href="#">
+                    <a class="text-md uppercase font-regular text-bro-dark py-2 hover:border-solid hover:border-bro-dark hover:border-b-2" href="{{ route('login') }}">
                         Login
                     </a>
                 </li>
                 <li class="mt-2 md:mt-0">
-                    <a class="text-md uppercase font-regular text-bro-dark px-8 py-2 border-2 border-solid border-bro-dark rounded-md hover:bg-gr-light hover:text-whi-opaque" href="#">
+                    <a class="text-md uppercase font-regular text-bro-dark px-8 py-2 border-2 border-solid border-bro-dark rounded-md hover:bg-gr-light hover:text-whi-opaque" href="{{ route('register') }}">
                         Cadastrar
                     </a>
                 </li>

@@ -10,3 +10,9 @@
     width: 25rem;
     height: 25rem;
 }
+
+/* ------------- LOGIN ------------- */
+
+.block-fluid{
+    min-height: 100vh;
+}
