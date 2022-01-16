@@ -995,6 +995,9 @@ select {
 .self-center {
   align-self: center;
 }
+.justify-self-end {
+  justify-self: end;
+}
 .overflow-hidden {
   overflow: hidden;
 }
