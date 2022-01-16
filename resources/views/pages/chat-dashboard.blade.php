@@ -14,7 +14,7 @@
             
             <!-- HEADER SIDEBAR -->
 
-            <div class="height-14 flex justify-between items-center px-8 pb-2 pt-6 pt-5 shadow">
+            <div class="flex justify-between items-center px-8 pb-2 pt-6 pt-5 shadow">
                 <div class="flex items-center">
                     <div class="rounded-full h-12 w-12 bg-whi-opaque mr-4"></div>
                     <p class="text-whi-yellow font-regular text-lg">Username</p>
@@ -32,14 +32,14 @@
                     </div>
                 </div>
             </div>
-            <div class="flex height-9 px-8 py-4 shadow relative">
+            <div class="flex px-8 py-4 shadow relative">
                 <input class="h-10 w-full bg-ye-light rounded-3xl px-4 text-bro-dark text-sm font-regular placeholder-bro-dark border-none focus:ring-whi-yellow" type="search" name="search" placeholder="Buscar...">
                 <button type="submit" class="absolute right-0 mr-7 w-10 h-10"><img src="/assets/lupe.svg"></button>
             </div>
 
             <!-- CONVERSATION LIST -->
 
-            <div class="height-77 overflow-y-scroll scroll-base flex flex-col items-center divide-y-2 divide-bro-darker divide-opacity-25">
+            <div class="overflow-y-scroll scroll-base flex flex-col items-center divide-y-2 divide-bro-darker divide-opacity-25">
 
                 @foreach ($chats as $chat)
 

@@ -1,0 +1,18 @@
+/* ------------- MEDIA QUERIES ------------- */
+
+@media screen and (max-width: 768px){
+    .navbar .navbar-links.nav-collapse{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+        min-height: 9rem;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 300px){
+    /* .navbar .navbar-toggle{
+        margin-top: 20px;
+    } */
+}
