@@ -1,11 +1,12 @@
-/* ------------- INDEX ------------- */
+/* ------------- INDEX SECTION INTRO ------------- */
 
-.navbar .navbar-brand a img{
+#intro .navbar .navbar-brand a img{
     width: 3rem;
 }
-.navbar .navbar-toggle a img, .navbar .navbar-links a img{
+#intro .navbar .navbar-toggle a img, .navbar .navbar-links a img{
     width: 3rem;
 }
-.navbar .navbar-links{
-    
+#intro .circle-intro{
+    width: 25rem;
+    height: 25rem;
 }
