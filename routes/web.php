@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('pages.index');
 })->name('index');
 
-Route::get('/tr', function () {
-    return view('pages/login');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

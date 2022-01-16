@@ -16,7 +16,7 @@
             <!-- Validation Errors -->
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-            <p class="font-semibold text-3xl text-whi-yellow">
+            <p class="mb-6 font-semibold text-3xl text-whi-yellow">
                 Entrar
             </p>
             
@@ -25,13 +25,13 @@
                 @csrf
                 
                 <div>
-                    <input id="email" placeholder="E-mail" type="email" name="email" class="mt-6 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus />
+                    <input id="email" placeholder="E-mail" type="email" name="email" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autofocus />
                 </div>
-                <div>
-                    <input id="password" placeholder="Senha" type="password" name="password" class="mt-4 rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autocomplete="current-password" />
+                <div class="mt-4">
+                    <input id="password" placeholder="Senha" type="password" name="password" class="rounded-md block w-full bg-ye-medium text-whi-opaque placeholder-whi-opaque h-14 border-none focus:ring-whi-yellow" required autocomplete="current-password" />
                 </div>
-                <div class="justify-start">
-                    <button class="mt-4 bg-bro-medium py-3 px-12 xs:px-14 rounded-md hover:bg-gr-medium" type="submit">
+                <div class="mt-4 justify-start">
+                    <button class="bg-bro-medium py-3 px-12 xs:px-14 rounded-md hover:bg-gr-medium" type="submit">
                         <p class="text-whi-yellow font-semibold text-lg">
                             Login
                         </p>
@@ -54,7 +54,7 @@
                 </div>
             </form>
 
-            <p class="mt-10 text-whi-yellow text-sm">
+            <p class="mt-8 text-whi-yellow text-sm">
                 Sobre o 
                 <a class="text-whi-opaque hover:text-gr-light" href="{{ route('index') }}">
                     Banana Chat
