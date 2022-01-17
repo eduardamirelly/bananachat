@@ -25,11 +25,9 @@
 #chat .sidebar{
     min-width: 22rem;
 }
-#chat .chat-body .chat-header{
-    /* min-width: 45rem; */
-}
 #chat .chat-body .chat-messages{
-    height: 30rem;
+    min-height: 30vh;
+    height: 65vh;
 }
 #chat .chat-body .chat-messages .message{
     max-width: 45%;

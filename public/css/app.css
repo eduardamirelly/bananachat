@@ -1197,6 +1197,10 @@ select {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .pt-2 {
   padding-top: 0.5rem;
 }
@@ -1738,6 +1742,10 @@ select {
 
   .sm\:w-5\/12 {
     width: 41.666667%;
+  }
+
+  .sm\:w-8 {
+    width: 2rem;
   }
 
   .sm\:max-w-md {

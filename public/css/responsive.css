@@ -4,8 +4,14 @@
     #chat .sidebar{
         display: none;
     }
-    #chat .chat-body{
-        /* min-width: 50%; */
+    #chat .chat-body #toggle-button{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 992px){
+    #chat-input{
+        width: 88%;
     }
 }
 
@@ -18,16 +24,38 @@
         min-height: 9rem;
         justify-content: space-around;
     }
+    #chat-input{
+        width: 85%;
+    }
 }
 
 @media screen and (max-width: 576px){
     #chat .chat-body .chat-messages .message{
         max-width: 60%;
     }
+    #chat-input{
+        width: 85%;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .div-chat-send{
+        min-width: 3rem;
+        width: 15%;
+    }
+    .div-chat-send #chat-send{
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+    }
 }
 
 @media screen and (max-width: 400px){
     #chat .chat-body .chat-messages .message{
         max-width: 80%;
+    }
+    #chat-input{
+        width: 75%;
+    }
+    .div-chat-send{
+        width: 25%;
     }
 }

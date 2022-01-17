@@ -78,8 +78,8 @@
                         <div class="ml-8">
                             <img src="{{ asset('assets/menu-bro.svg') }}" alt="menu">
                         </div>
-                        <div class="ml-8">
-                            <a href="#">
+                        <div>
+                            <a href="#" id="toggle-button" class="ml-8 hidden">
                                 <img class="w-10" src="{{ asset('assets/menu-toggle.png') }}" alt="menu">
                             </a>
                         </div>
@@ -146,8 +146,8 @@
             
             <div class="w-full px-8 md:px-16 pt-4 pb-8 flex justify-between items-center">
                 <div id="chat-input" class="chat-input overflow-y-auto text-sm text-bro-dark bg-ye-light focus:ring-1 focus:ring-bro-dark outline-none" contenteditable></div>
-                <div class="">
-                    <button class="px-4 py-2 h-12 bg-bro-dark rounded-sm">
+                <div class="div-chat-send">
+                    <button id="chat-send" class="px-4 py-2 h-12 bg-bro-dark rounded-sm">
                         <img class="w-8" src="{{ asset('assets/send.svg') }}" alt="">
                     </button>
                 </div>
