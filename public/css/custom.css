@@ -27,7 +27,7 @@
 }
 #chat .chat-body .chat-messages{
     min-height: 30vh;
-    height: 65vh;
+    height: 60vh;
 }
 #chat .chat-body .chat-messages .message{
     max-width: 45%;

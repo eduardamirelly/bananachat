@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('pages.index');
 })->name('index');
 
+Route::get('/chat', function () {
+    return view('pages.chat-dashboard');
+});
+
 Route::get('/dashboard', function () {
     return view('pages.chat-dashboard');
 })->middleware(['auth'])->name('dashboard');

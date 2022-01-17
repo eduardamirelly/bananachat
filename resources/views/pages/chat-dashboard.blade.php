@@ -11,7 +11,7 @@
         <div class="sidebar bg-bro-dark">
             
             <!-- HEADER SIDEBAR -->
-            <div class="flex justify-between items-center px-8 pb-2 pt-6 pt-5 shadow">
+            <div class="flex justify-between items-center px-8 pb-2 pt-6 shadow">
                 <div class="flex items-center">
                     <div class="rounded-full h-12 w-12 bg-whi-opaque mr-4"></div>
                     <p class="text-whi-yellow font-regular text-lg">Username</p>
@@ -59,9 +59,9 @@
 
         <!-- CHAT BODY -->
         <div class="chat-body flex flex-col justify-between items-center">
-            <div class="w-full px-8 md:px-16 py-8">
+            <div class="w-full pt-8 pb-4 px-4 sm:px-16">
                 <div class="chat-header flex flex-wrap justify-around sm:justify-between items-center pb-3 border-solid border-b border-bro-dark">
-                    <div class="px-4 py-2 sm:pr-8 flex items-center flex-wrap">
+                    <div class="py-2 sm:pr-8 flex items-center flex-wrap">
                         <div class="relative mr-4">
                             <img class="rounded-full h-14 w-14" src="{{ asset('assets/Eduarda.jpg') }}" alt="chat-profile">
                             <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
@@ -71,10 +71,7 @@
                             <p class="text-xs font-regular text-bro-dark">Offline</p>
                         </div>
                     </div>
-                    <div class="px-4 py-2 sm:pl-4 flex items-center flex-wrap">
-                        <div>
-                            <img src="{{ asset('assets/lupe.svg') }}" alt="lupe">
-                        </div>
+                    <div class="py-2 sm:pl-4 flex items-center flex-wrap">
                         <div class="ml-8">
                             <img src="{{ asset('assets/menu-bro.svg') }}" alt="menu">
                         </div>
@@ -86,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full px-8 md:px-16 py-2">
+            <div class="w-full px-4 sm:px-16 py-2">
                 <div class="chat-messages flex flex-col px-4 overflow-y-scroll">
                     
                     <!-- MESSAGE TO ME -->
@@ -144,7 +141,7 @@
                 </div>
             </div>
             
-            <div class="w-full px-8 md:px-16 pt-4 pb-8 flex justify-between items-center">
+            <div class="w-full px-4 sm:px-16 pt-4 pb-8 flex justify-between items-center">
                 <div id="chat-input" class="chat-input overflow-y-auto text-sm text-bro-dark bg-ye-light focus:ring-1 focus:ring-bro-dark outline-none" contenteditable></div>
                 <div class="div-chat-send">
                     <button id="chat-send" class="px-4 py-2 h-12 bg-bro-dark rounded-sm">
