@@ -1,5 +1,14 @@
 /* ------------- MEDIA QUERIES ------------- */
 
+@media screen and (max-width: 1200px){
+    #chat .sidebar{
+        display: none;
+    }
+    #chat .chat-body{
+        /* min-width: 50%; */
+    }
+}
+
 @media screen and (max-width: 768px){
     #intro .navbar .navbar-links.nav-collapse{
         display: flex;
@@ -11,6 +20,14 @@
     }
 }
 
-@media screen and (max-width: 300px){
-    /*  */
+@media screen and (max-width: 576px){
+    #chat .chat-body .chat-messages .message{
+        max-width: 60%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #chat .chat-body .chat-messages .message{
+        max-width: 80%;
+    }
 }

@@ -11,8 +11,59 @@
     height: 25rem;
 }
 
-/* ------------- LOGIN ------------- */
+/* ------------- LOGIN, REGISTER, FORGOT PASSWORD, VERIFY EMAIL... ------------- */
 
 .block-fluid{
     min-height: 100vh;
+}
+
+/* ------------- CHAT DASHBOARD ------------- */
+
+#chat{
+    min-height: 100vh;
+}
+#chat .sidebar{
+    min-width: 22rem;
+}
+#chat .chat-body .chat-header{
+    /* min-width: 45rem; */
+}
+#chat .chat-body .chat-messages{
+    height: 30rem;
+}
+#chat .chat-body .chat-messages .message{
+    max-width: 45%;
+}
+#chat-input{
+    width: 90%;
+    min-height: 3rem;
+    max-height: 5rem;
+    border-radius: 5px;
+    padding: .5rem;
+    outline: 0px solid transparent;
+}
+#chat-input::-webkit-scrollbar{
+    width: 8px;
+}
+#chat-input::-webkit-scrollbar-track{
+    background-color: #E8C16F; 
+}
+#chat-input::-webkit-scrollbar-thumb{
+    background-color: #E3AD46;
+}
+#chat-input::-webkit-scrollbar-thumb:hover{
+    background-color: #583001;
+}
+
+#chat .chat-body .chat-messages::-webkit-scrollbar{
+    width: 8px;
+}
+#chat .chat-body .chat-messages::-webkit-scrollbar-track{
+    background-color: #F1E3B6; 
+}
+#chat .chat-body .chat-messages::-webkit-scrollbar-thumb{
+    background-color: #F1E3B6;
+}
+#chat .chat-body .chat-messages::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(227, 173, 70, .5);
 }

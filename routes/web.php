@@ -18,7 +18,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('pages.chat-dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
