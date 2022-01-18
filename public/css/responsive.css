@@ -60,8 +60,26 @@
     }
 }
 
-@media screen and (max-height: 600px){
+@media screen and (max-height: 400px){
     #chat .chat-body .chat-messages{
-        height: 50vh;
+        height: 45vh;
+    }
+}
+
+@media screen and (max-height: 500px){
+    #chat .chat-body .chat-messages{
+        height: 45vh;
+    }
+}
+
+@media screen and (max-height: 550px) and (min-height: 500px){
+    #chat .chat-body .chat-messages{
+        height: 48vh;
+    }
+}
+
+@media screen and (max-height: 600px) and (min-height: 550px){
+    #chat .chat-body .chat-messages{
+        height: 55vh;
     }
 }
