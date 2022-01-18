@@ -141,12 +141,14 @@
                 </div>
             </div>
             
-            <div class="w-full px-4 sm:px-16 pt-2 pb-6 flex justify-between items-center">
-                <div id="chat-input" class="chat-input overflow-y-auto text-sm text-bro-dark bg-ye-light focus:ring-1 focus:ring-bro-dark outline-none" contenteditable></div>
-                <div class="div-chat-send">
-                    <button id="chat-send" class="px-4 py-2 bg-bro-dark rounded-sm flex justify-center items-center">
-                        <img class="w-8" src="{{ asset('assets/send.svg') }}" alt="">
-                    </button>
+            <div class="w-full px-4 sm:px-16 pt-2 pb-6">
+                <div class="flex justify-between items-center">
+                    <div id="chat-input" class="chat-input overflow-y-auto text-sm text-bro-dark bg-ye-light focus:ring-1 focus:ring-bro-dark outline-none" contenteditable></div>
+                    <div class="div-chat-send self-end">
+                        <button id="chat-send" class="px-4 py-2 bg-bro-dark rounded-sm flex justify-center items-center">
+                            <img class="w-8" src="{{ asset('assets/send.svg') }}" alt="">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
