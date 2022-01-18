@@ -121,21 +121,21 @@
     }
 }
 
-@media screen and (max-height: 350px){
-    #chat .chat-body .chat-messages{
-        height: 40vh;
-    }
-}
-
-@media screen and (max-height: 400px) and (min-height: 350px){
-    #chat .chat-body .chat-messages{
-        height: 45vh;
-    }
-}
-
-@media screen and (max-height: 500px) and (min-height: 400px){
+@media screen and (max-height: 410px){
     #chat .chat-body .chat-messages{
         height: 48vh;
+    }
+}
+
+@media screen and (max-height: 450px) and (min-height: 410px){
+    #chat .chat-body .chat-messages{
+        height: 50vh;
+    }
+}
+
+@media screen and (max-height: 500px) and (min-height: 450px){
+    #chat .chat-body .chat-messages{
+        height: 54vh;
     }
 }
 
@@ -145,9 +145,15 @@
     }
 }
 
-@media screen and (max-height: 700px) and (min-height: 550px){
+@media screen and (max-height: 650px) and (min-height: 550px){
     #chat .chat-body .chat-messages{
         height: 62vh;
+    }
+}
+
+@media screen and (max-height: 700px) and (min-height: 650px){
+    #chat .chat-body .chat-messages{
+        height: 68vh;
     }
 }
 
