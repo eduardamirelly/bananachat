@@ -8,26 +8,35 @@
     <div id="chat" class="flex w-full">
 
         <!-- SIDEBAR -->
-        <div class="sidebar bg-bro-dark">
+        <div id="sidebar" class="sidebar bg-bro-dark">
             
             <!-- HEADER SIDEBAR -->
-            <div class="flex justify-between items-center px-8 pb-2 pt-6 shadow">
-                <div class="flex items-center">
-                    <div class="rounded-full h-12 w-12 bg-whi-opaque mr-4"></div>
-                    <p class="text-whi-yellow font-regular text-lg">Username</p>
+            <div class="sidebar-header flex flex-wrap justify-between items-center px-8 pb-2 pt-6 shadow">
+                <div class="flex items-center px-3 py-2">
+                    <div id="div-arrow" class="mr-2">
+                        <a href="#" id="arrow">
+                            <img class="h-8 w-8" src="{{ asset('assets/arrow-left.png') }}" alt="user-profile">
+                        </a>
+                    </div>
+                    <div class="mr-2">
+                        <img id="user-profile" class="rounded-full h-12 w-12" src="{{ asset('assets/gabriel-victor.jpeg') }}" alt="user-profile">
+                    </div>
+                    <p class="text-whi-yellow font-regular text-sm sm:text-md">GabrielVictor</p>
                 </div>
-                <div class="flex align-content-end items-center">
-                    <div class="mr-6">
-                        <a href="#"><img class="w-4/5" src="/assets/chat_logo.svg"></a>
+                <div class="sidebar-buttons flex align-content-end items-center px-3 py-2">
+                    <div class="mr-4">
+                        <a href="#"><img class="w-4/5" src="{{ asset('assets/chat_logo.svg') }}"></a>
                     </div>
                     <div>
-                        <a><img class="w-4/5" src="/assets/menu.svg"></a>
+                        <a><img class="w-4/5" src="{{ asset('assets/menu.svg') }}"></a>
                     </div>
                 </div>
             </div>
-            <div class="flex px-8 py-4 shadow relative">
+            <div class="sidebar-search flex px-8 py-4 shadow relative">
                 <input class="h-10 w-full bg-ye-light rounded-3xl px-4 text-bro-dark text-sm font-regular placeholder-bro-dark border-none focus:ring-whi-yellow" type="search" name="search" placeholder="Buscar...">
-                <button type="submit" class="absolute right-0 mr-7 w-10 h-10"><img src="/assets/lupe.svg"></button>
+                <button type="submit" class="absolute right-0 mr-7 w-10 h-10">
+                    <img src="/assets/lupe.svg">
+                </button>
             </div>
 
             <!-- CONVERSATION LIST -->
@@ -37,7 +46,7 @@
                 <div class="flex justify-between items-center w-full px-8 py-4 hover:bg-bro-darker cursor-pointer">
                     <div class="flex items-center">
                         <div class="relative mr-4">
-                            <img class="rounded-full h-14 w-14" src="{{ asset('assets/Eduarda.jpg') }}" alt="chat-profile">
+                            <img class="chat-profile rounded-full h-14 w-14" src="{{ asset('assets/Eduarda.jpg') }}" alt="chat-profile">
                             <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
                         </div>
                         <div>
@@ -152,9 +161,25 @@
                 </div>
             </div>
         </div>
-        
     </div>
+    
+    <script>
 
-    <!-- END CHAT DASHBOARD  -->
+        var toggle_button = document.getElementById('toggle-button');
+        var arrow = document.getElementById('arrow');
+        var sidebar = document.getElementById('sidebar');
+
+        toggle_button.addEventListener('click', (e) => {
+            if(sidebar.classList.contains('collapse')){
+                sidebar.classList.remove('collapse');
+            }else{
+                sidebar.classList.add('collapse');
+            }
+        });
+        arrow.addEventListener('click', (e) => {
+            sidebar.classList.remove('collapse');
+        });
+
+    </script>
 
 @endsection

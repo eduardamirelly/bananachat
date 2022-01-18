@@ -19,15 +19,24 @@
 
 /* ------------- CHAT DASHBOARD ------------- */
 
+
+
 #chat{
     min-height: 100vh;
 }
 #chat .sidebar{
-    min-width: 22rem;
+    width: 35rem;
+    min-width: 17rem;
+}
+#chat .chat-body{
+    min-width: 17rem;
+}
+#chat .sidebar #div-arrow{
+    display: none;
 }
 #chat .chat-body .chat-messages{
     min-height: 30vh;
-    height: 60vh;
+    height: 70vh;
 }
 #chat .chat-body .chat-messages .message{
     max-width: 45%;
