@@ -116,6 +116,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="message mt-2 self-start">
+                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
+                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
+                            <div class="mt-2 self-end">
+                                <p class="text-xs font-light text-whi-opaque">00:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message mt-2 self-start">
+                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
+                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
+                            <div class="mt-2 self-end">
+                                <p class="text-xs font-light text-whi-opaque">00:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message mt-2 self-start">
+                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
+                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
+                            <div class="mt-2 self-end">
+                                <p class="text-xs font-light text-whi-opaque">00:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message mt-2 self-start">
+                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
+                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
+                            <div class="mt-2 self-end">
+                                <p class="text-xs font-light text-whi-opaque">00:00</p>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="message mt-2 self-start">
                         <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
