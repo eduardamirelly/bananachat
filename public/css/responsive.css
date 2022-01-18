@@ -129,25 +129,25 @@
 
 @media screen and (max-height: 400px) and (min-height: 350px){
     #chat .chat-body .chat-messages{
-        height: 43vh;
+        height: 45vh;
     }
 }
 
 @media screen and (max-height: 500px) and (min-height: 400px){
     #chat .chat-body .chat-messages{
-        height: 45vh;
+        height: 48vh;
     }
 }
 
 @media screen and (max-height: 550px) and (min-height: 500px){
     #chat .chat-body .chat-messages{
-        height: 48vh;
+        height: 58vh;
     }
 }
 
 @media screen and (max-height: 700px) and (min-height: 550px){
     #chat .chat-body .chat-messages{
-        height: 55vh;
+        height: 62vh;
     }
 }
 
