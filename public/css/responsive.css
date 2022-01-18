@@ -62,6 +62,6 @@
 
 @media screen and (max-height: 600px){
     #chat .chat-body .chat-messages{
-        height: 40vh;
+        height: 50vh;
     }
 }
