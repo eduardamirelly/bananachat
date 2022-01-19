@@ -80,14 +80,35 @@
                             <p class="text-xs font-regular text-bro-dark">Offline</p>
                         </div>
                     </div>
-                    <div class="py-2 sm:pl-4 flex items-center flex-wrap">
-                        <div class="ml-8">
-                            <img src="{{ asset('assets/menu-bro.svg') }}" alt="menu">
-                        </div>
+                    <div class="py-2 sm:pl-4 flex items-center flex-wrap"> 
                         <div>
                             <a href="#" id="toggle-button" class="ml-8 hidden">
                                 <img class="w-10" src="{{ asset('assets/menu-toggle.png') }}" alt="menu">
                             </a>
+                        </div>
+                        <div class="flex">
+                            <a href="#" id="toggle-dropdown" class="ml-8">
+                                <img src="{{ asset('assets/menu-bro.svg') }}" alt="menu">
+                            </a>
+                        </div>
+                    </div>
+                    <div id="chat-dropdown" class="chat-dropdown absolute right-0">
+                        <div class="shadow-md">
+                            <div class="px-6 py-3 bg-bro-dark">
+                                <a href="#" class="text-sm font-light text-whi-opaque hover:text-gr-light">
+                                    Dados do Usuário
+                                </a>
+                            </div>
+                            <div class="px-6 py-3 bg-bro-dark">
+                                <a href="#" class="text-sm font-light text-whi-opaque hover:text-gr-light">
+                                    Silenciar
+                                </a>
+                            </div>
+                            <div class="px-6 py-3 bg-bro-dark">
+                                <a href="#" class="text-sm font-light text-whi-opaque hover:text-gr-light">
+                                    Limpar mensagens
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,8 +219,10 @@
     <script>
 
         var toggle_button = document.getElementById('toggle-button');
+        var toggle_dropdown = document.getElementById('toggle-dropdown');
         var arrow = document.getElementById('arrow');
         var sidebar = document.getElementById('sidebar');
+        var chat_dropdown = document.getElementById('chat-dropdown');
 
         toggle_button.addEventListener('click', (e) => {
             if(sidebar.classList.contains('collapse')){
@@ -210,6 +233,14 @@
         });
         arrow.addEventListener('click', (e) => {
             sidebar.classList.remove('collapse');
+        });
+
+        toggle_dropdown.addEventListener('click', (e) => {
+            if(chat_dropdown.classList.contains('show')){
+                chat_dropdown.classList.remove('show');
+            }else{
+                chat_dropdown.classList.add('show');
+            }
         });
 
     </script>

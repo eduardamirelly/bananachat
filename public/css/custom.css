@@ -31,6 +31,14 @@
 #chat .chat-body{
     min-width: 17rem;
 }
+.chat-dropdown{
+    right: 5rem !important;
+    top: 5.5rem;
+    display: none;
+}
+.chat-dropdown.show{
+    display: block;
+}
 #chat .sidebar #div-arrow{
     display: none;
 }

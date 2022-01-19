@@ -20,6 +20,9 @@
     #chat .chat-body #toggle-button{
         display: block;
     }
+    .chat-dropdown{
+        /* right: 10rem !important; */
+    }
 }
 
 @media screen and (max-width: 992px){
@@ -45,6 +48,12 @@
     }
 }
 
+@media screen and (max-width: 640px){
+    .chat-dropdown{
+        /* right: 12rem !important; */
+    }
+}
+
 @media screen and (max-width: 576px){
     #chat .chat-body .chat-messages .message{
         max-width: 60%;
@@ -65,6 +74,9 @@
 
     #chat #sidebar.collapse{
         width: 100%;
+    }
+    .chat-dropdown{
+        /* right: 80px !important; */
     }
 }
 
