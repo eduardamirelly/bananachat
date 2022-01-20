@@ -24,6 +24,6 @@ Route::get('/chat', function () {
 Route::get('/dashboard', function () {
     return view('pages.chat-dashboard');
 })->middleware(['auth'])->name('dashboard');
-
+//lembra de pôr o verified
 
 require __DIR__.'/auth.php';

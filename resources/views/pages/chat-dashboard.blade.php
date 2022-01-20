@@ -137,50 +137,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="message mt-2 self-start">
-                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
-                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
-                            <div class="mt-2 self-end">
-                                <p class="text-xs font-light text-whi-opaque">00:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="message mt-2 self-start">
-                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
-                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
-                            <div class="mt-2 self-end">
-                                <p class="text-xs font-light text-whi-opaque">00:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="message mt-2 self-start">
-                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
-                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
-                            <div class="mt-2 self-end">
-                                <p class="text-xs font-light text-whi-opaque">00:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="message mt-2 self-start">
-                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
-                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
-                            <div class="mt-2 self-end">
-                                <p class="text-xs font-light text-whi-opaque">00:00</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="message mt-2 self-start">
-                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
-                            <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
-                            <div class="mt-2 self-end">
-                                <p class="text-xs font-light text-whi-opaque">00:00</p>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- MESSAGE FROM ME -->
-                    <div class="message mt-2 flex flex-col self-end">
+                    {{-- <div class="message mt-2 flex flex-col self-end">
                         <div class="mb-1 self-end">
                             <p class="text-sm text-gr-medium font-medium">Você</p>
                         </div>
@@ -199,7 +158,7 @@
                                 <p class="text-xs font-light text-whi-opaque">00:00</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             
@@ -246,3 +205,47 @@
     </script>
 
 @endsection
+
+@push('scripts')
+
+    <script>
+
+        $(function (){
+            let user_id = '{{ auth()->user()->id }}';
+            let ip_address = '127.0.0.1';
+            let socket_port = '3000';
+            let socket = io(ip_address + ':' + socket_port);
+
+            let chat_input = $('#chat-input');
+
+            chat_input.keypress(function (e){
+                let message = $(this).html();
+                console.log(message);
+                if(e.which === 13 && !e.shiftKey){
+                    socket.emit('sendMessage', message);
+                    chat_input.html('');
+                    return false;
+                }
+            });
+
+            socket.on('sendChatToClient', function (message){
+                $('.chat-messages').append
+                (`
+                
+                    <div class="message mt-2 flex flex-col self-end">
+                        <div class="bg-gr-medium p-3 rounded-br-none rounded-lg flex flex-col">
+                            <p class="text-sm-1 font-regular text-whi-opaque">${message}</p>
+                            <div class="mt-2 self-end">
+                                <p class="text-xs font-light text-whi-opaque">00:00</p>
+                            </div>
+                        </div>
+                    </div> 
+                
+                `);
+            });
+
+        });
+
+    </script>
+    
+@endpush
