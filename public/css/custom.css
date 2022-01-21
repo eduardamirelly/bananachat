@@ -25,11 +25,12 @@
     min-height: 100vh;
 }
 #chat .sidebar{
-    width: 35rem;
-    min-width: 17rem;
+    /* width: 35rem; */
+    min-width: 24rem;
 }
 #chat .chat-body{
-    min-width: 17rem;
+    /* min-width: 17rem; */
+    width: 100%;
 }
 .chat-dropdown{
     right: 5rem !important;

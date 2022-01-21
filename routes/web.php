@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-})->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::get('/chat', function () {
-    return view('pages.chat-dashboard');
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+
+    Route::post('send-message', [MessageController::class, 'sendMessage'])->name('message.send-message');
+    Route::get('list-messages', [MessageController::class, 'listMessages'])->name('message.list-messages');
+
 });
 
-Route::get('/dashboard', function () {
-    return view('pages.chat-dashboard');
-})->middleware(['auth'])->name('dashboard');
 //lembra de pôr o verified
 
 require __DIR__.'/auth.php';

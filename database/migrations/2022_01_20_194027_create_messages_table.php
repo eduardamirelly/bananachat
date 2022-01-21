@@ -15,13 +15,14 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->longText('content');
-            $table->unsignedBigInteger('sender_id');
-            $table->string('sender_name');
+            $table->text('content');
+            $table->unsignedBigInteger('from_user_id');
+            $table->unsignedBigInteger('to_user_id');
             //id chat vinculado (fk)
             $table->timestamps();
 
-            $table->foreign('sender_id')->references('id')->on('users');
+            $table->foreign('from_user_id')->references('id')->on('users');
+            $table->foreign('to_user_id')->references('id')->on('users');
         });
     }
 
