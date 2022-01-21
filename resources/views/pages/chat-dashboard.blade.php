@@ -19,9 +19,9 @@
                         </a>
                     </div>
                     <div class="mr-2">
-                        <img id="user-profile" class="rounded-full h-12 w-12" src="{{ asset('assets/gabriel-victor.jpeg') }}" alt="user-profile">
+                        <img id="user-profile" class="rounded-full h-12 w-12" src="{{ asset('assets/Eduarda.jpg') }}" alt="user-profile">
                     </div>
-                    <p class="text-whi-yellow font-regular text-sm sm:text-md">GabrielVictor</p>
+                    <p class="text-whi-yellow font-regular text-sm sm:text-md">{{ $myInfo->name }}</p>
                 </div>
                 <div class="sidebar-buttons flex align-content-end items-center px-3 py-2">
                     <div class="mr-4">
@@ -42,27 +42,31 @@
             <!-- CONVERSATION LIST -->
             <div class="overflow-y-scroll scroll-base flex flex-col items-center divide-y-2 divide-bro-darker divide-opacity-25">
 
-                <!-- CONVERSATION -->
-                <div class="flex justify-between items-center w-full px-8 py-4 hover:bg-bro-darker cursor-pointer">
-                    <div class="flex items-center">
-                        <div class="relative mr-4">
-                            <img class="chat-profile rounded-full h-14 w-14" src="{{ asset('assets/Eduarda.jpg') }}" alt="chat-profile">
-                            <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
+                @foreach ($users as $user)
+                    <!-- CONVERSATION -->
+                    <div id="conversation" class="flex justify-between items-center w-full px-8 py-4 hover:bg-bro-darker cursor-pointer">
+                        <div class="flex items-center">
+                            <div class="relative mr-4">
+                                <div class="rounded-full h-14 w-14 bg-gr-light"></div>
+                                {{-- <img class="chat-profile rounded-full h-14 w-14" src="https://suap.ifrn.edu.br/media/alunos/219829.5SDnHZVdjC7W.jpg" alt="chat-profile"> --}}
+                                <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
+                            </div>
+                            <div>
+                                <p class="text-md text-whi-opaque">{{ $user->name }}</p>
+                                <input type="hidden" id="to_user" value="{{ $user->id }}">
+                                <p class="text-xs text-whi-opaque">última mensagem</p>
+                                <p class="text-xs text-whi-opaque">00:00</p>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-md text-whi-opaque">404neves</p>
-                            <p class="text-xs text-whi-opaque">última mensagem</p>
-                            <p class="text-xs text-whi-opaque">00:00</p>
+                        <div class="flex flex-col justify-around items-center h-full">
+                            <div class="rounded-full h-5 w-5 mb-2 bg-ye-golden flex items-center justify-center p-2.5">
+                                <p class="text-xs font-medium text-bro-dark">10</p>
+                            </div>
+                            <div><img class="w-5" src="/assets/mute.svg"></div>
                         </div>
                     </div>
-                    <div class="flex flex-col justify-around items-center h-full">
-                        <div class="rounded-full h-5 w-5 mb-2 bg-ye-golden flex items-center justify-center p-2.5">
-                            <p class="text-xs font-medium text-bro-dark">10</p>
-                        </div>
-                        <div><img class="w-5" src="/assets/mute.svg"></div>
-                    </div>
-                </div>
-                
+                @endforeach
+
             </div>
         </div>
 
@@ -72,11 +76,12 @@
                 <div class="chat-header flex flex-wrap justify-around sm:justify-between items-center pb-2 border-solid border-b border-bro-dark">
                     <div class="py-2 sm:pr-8 flex items-center flex-wrap">
                         <div class="relative mr-4">
-                            <img class="rounded-full h-14 w-14" src="{{ asset('assets/Eduarda.jpg') }}" alt="chat-profile">
+                            <div class="rounded-full h-14 w-14 bg-gr-light"></div>
+                            {{-- <img class="rounded-full h-14 w-14" src="https://suap.ifrn.edu.br/media/alunos/219829.5SDnHZVdjC7W.jpg" alt="chat-profile"> --}}
                             <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
                         </div>
                         <div>
-                            <h5 class="text-md font-medium text-bro-dark">404neves</h5>
+                            <h5 class="text-md font-medium text-bro-dark">-------</h5>
                             <p class="text-xs font-regular text-bro-dark">Offline</p>
                         </div>
                     </div>
@@ -109,6 +114,14 @@
                                     Limpar mensagens
                                 </a>
                             </div>
+                            <div class="px-6 py-3 bg-bro-dark">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();" class="text-sm font-light text-whi-opaque hover:text-gr-light">
+                                        Logout
+                                    </a>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +130,7 @@
                 <div class="chat-messages flex flex-col px-4 overflow-y-scroll">
                     
                     <!-- MESSAGE TO ME -->
-                    <div class="message mt-2 self-start">
+                    {{-- <div class="message mt-2 self-start">
                         <div class="mb-1">
                             <p class="text-sm text-gr-medium font-medium">Eduarda</p>
                         </div>
@@ -127,16 +140,16 @@
                                 <p class="text-xs font-light text-whi-opaque">00:00</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- MESSAGE TO ME SEM HEADER -->
-                    <div class="message mt-2 self-start">
+                    {{-- <div class="message mt-2 self-start">
                         <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
                             <p class="text-sm-1 font-regular text-whi-opaque">Lorem ipsum dolor sit amet consectetur, adipisicing elit. in veritatis commodi excepturi! Cum explicabo at sit rerum laborum non illo ipsum.</p>
                             <div class="mt-2 self-end">
                                 <p class="text-xs font-light text-whi-opaque">00:00</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- MESSAGE FROM ME -->
                     {{-- <div class="message mt-2 flex flex-col self-end">
@@ -161,7 +174,6 @@
                     </div> --}}
                 </div>
             </div>
-            
             <div class="w-full px-4 sm:px-16 pt-2 pb-6">
                 <div class="flex justify-between items-center">
                     <div id="chat-input" class="chat-input overflow-y-auto text-sm text-bro-dark bg-ye-light focus:ring-1 focus:ring-bro-dark outline-none" contenteditable></div>
@@ -217,18 +229,54 @@
             let socket = io(ip_address + ':' + socket_port);
 
             let chat_input = $('#chat-input');
+            let conversation = $('#conversation');
 
             chat_input.keypress(function (e){
                 let message = $(this).html();
                 console.log(message);
                 if(e.which === 13 && !e.shiftKey){
-                    socket.emit('sendMessage', message);
+                    socket.emit('sendMessageToServer', message);
                     chat_input.html('');
+                    sendMessage(message);
                     return false;
                 }
             });
 
-            socket.on('sendChatToClient', function (message){
+            function sendMessage(message){
+                let url = "{{ route('message.send-message') }}";
+                let formData = new FormData();
+                let token = "{{ csrf_token() }}";
+                let to_user_id = "";
+
+                formData.append('content', message);
+                formData.append('_token', token);
+
+                appendMessageToSender(message);
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'JSON',
+                    success: function (response) {
+                        if (response.success) {
+                            console.log('Mensagem: ' + response.message_obj.content);
+                        }
+                    },
+                    error: function(data) {
+                        var errors = data.responseJSON;
+                        console.log(errors);
+                    }
+                });
+
+            }
+
+            function appendMessageToSender(message){
+
+                var message_datetime = "{{ date('d/m/Y H:i') }}";
+
                 $('.chat-messages').append
                 (`
                 
@@ -236,15 +284,48 @@
                         <div class="bg-gr-medium p-3 rounded-br-none rounded-lg flex flex-col">
                             <p class="text-sm-1 font-regular text-whi-opaque">${message}</p>
                             <div class="mt-2 self-end">
-                                <p class="text-xs font-light text-whi-opaque">00:00</p>
+                                <p class="text-xs font-light text-whi-opaque">${message_datetime}</p>
                             </div>
                         </div>
                     </div> 
                 
                 `);
+            }
+
+            conversation.click(function (e){
+                let to_user = $('#to_user').val();
+                console.log(to_user);
+                let url = "{{ route('message.list-messages') }}";
+                let formData = new FormData();
+                let token = "{{ csrf_token() }}";
+
+                formData.append('userId', to_user);
+                formData.append('_token', token);
+
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'JSON',
+                    success: function (response) {
+                        if (response.success) {
+                            console.log(response.messages);
+                        }
+                    },
+                    error: function(data) {
+                        var errors = data.responseJSON;
+                        console.log(errors);
+                    }
+                });
             });
 
         });
+
+       
+
+        
 
     </script>
     

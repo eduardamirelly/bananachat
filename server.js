@@ -9,10 +9,10 @@ const io = require('socket.io')(server, {
 io.on('connection', function (socket){
     console.log('connection');
 
-    socket.on('sendMessage', (message) => {
+    socket.on('sendMessageToServer', (message) => {
         console.log(message);
 
-        socket.emit('sendChatToClient', message);
+        // socket.emit('sendChatToClient', message);
     });
 
     socket.on('disconnect', function (){

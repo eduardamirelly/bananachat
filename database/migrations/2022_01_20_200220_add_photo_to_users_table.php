@@ -14,7 +14,7 @@ class AddPhotoToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->char('photo', 255)->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddPhotoToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('photo');
         });
     }
 }
