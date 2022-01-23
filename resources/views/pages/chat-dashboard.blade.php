@@ -44,7 +44,7 @@
 
                 @foreach ($users as $user)
                     <!-- CONVERSATION -->
-                    <div id="conversation" class="flex justify-between items-center w-full px-8 py-4 hover:bg-bro-darker cursor-pointer">
+                    <div class="conversation flex justify-between items-center w-full px-8 py-4 hover:bg-bro-darker cursor-pointer">
                         <div class="flex items-center">
                             <div class="relative mr-4">
                                 <div class="rounded-full h-14 w-14 bg-gr-light"></div>
@@ -53,7 +53,7 @@
                             </div>
                             <div>
                                 <p class="text-md text-whi-opaque">{{ $user->name }}</p>
-                                <input type="hidden" id="to_user" value="{{ $user->id }}">
+                                <p class="to_user" style="display: none;">{{ $user->id }}</p>
                                 <p class="text-xs text-whi-opaque">última mensagem</p>
                                 <p class="text-xs text-whi-opaque">00:00</p>
                             </div>
@@ -172,6 +172,7 @@
                             </div>
                         </div>
                     </div> --}}
+
                 </div>
             </div>
             <div class="w-full px-4 sm:px-16 pt-2 pb-6">
@@ -227,10 +228,43 @@
             let ip_address = '127.0.0.1';
             let socket_port = '3000';
             let socket = io(ip_address + ':' + socket_port);
+            let chat_active = '';
 
             let chat_input = $('#chat-input');
-            let conversation = $('#conversation');
+            let conversations = $('.conversation');
 
+            $(conversations).each(function( index, value ) {
+                $(conversations[index]).click(function (e){
+                    let users_chat = $('.to_user');
+                    let to_user = $(users_chat[index]).html();
+                    chat_active = to_user;
+                    let url = "chat/" + to_user ;
+
+                    console.log(to_user);
+                    console.log(url);
+
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        processData: false,
+                        contentType: false,
+                        dataType: 'JSON',
+                        contentType: "application/json",
+                        success: function (response) {
+                            if (response.success) {
+                                for (let index = 0; index < response.messages.length; index++) {
+                                    console.log('mensagem ' + index + ': ' + response.messages[index].content);
+                                }
+                            }
+                        },
+                        error: function(data) {
+                            var errors = data.responseJSON;
+                            console.log(errors);
+                        }
+                    });
+                });
+            });
+            
             chat_input.keypress(function (e){
                 let message = $(this).html();
                 console.log(message);
@@ -246,9 +280,10 @@
                 let url = "{{ route('message.send-message') }}";
                 let formData = new FormData();
                 let token = "{{ csrf_token() }}";
-                let to_user_id = "";
+                let to_user_id = chat_active;
 
                 formData.append('content', message);
+                formData.append('to_user_id', to_user_id);
                 formData.append('_token', token);
 
                 appendMessageToSender(message);
@@ -279,7 +314,7 @@
 
                 $('.chat-messages').append
                 (`
-                
+            
                     <div class="message mt-2 flex flex-col self-end">
                         <div class="bg-gr-medium p-3 rounded-br-none rounded-lg flex flex-col">
                             <p class="text-sm-1 font-regular text-whi-opaque">${message}</p>
@@ -292,34 +327,6 @@
                 `);
             }
 
-            conversation.click(function (e){
-                let to_user = $('#to_user').val();
-                console.log(to_user);
-                let url = "{{ route('message.list-messages') }}";
-                let formData = new FormData();
-                let token = "{{ csrf_token() }}";
-
-                formData.append('userId', to_user);
-                formData.append('_token', token);
-
-                $.ajax({
-                    url: url,
-                    type: 'GET',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    dataType: 'JSON',
-                    success: function (response) {
-                        if (response.success) {
-                            console.log(response.messages);
-                        }
-                    },
-                    error: function(data) {
-                        var errors = data.responseJSON;
-                        console.log(errors);
-                    }
-                });
-            });
 
         });
 

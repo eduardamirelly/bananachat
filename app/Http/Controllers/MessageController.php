@@ -28,11 +28,8 @@ class MessageController extends Controller
         ]);
     }
 
-    public function listMessages($userId){
-        $messages = Message::where([
-            'from_user_id' => Auth::id(),
-            'to_user_id' => $userId
-        ])->orderBy('created_at', 'ASC')->get();
+    public function chat($userId){
+        $messages = Message::where('to_user_id', $userId)->orderBy('created_at', 'ASC')->get();
 
         return response()->json([
             'messages' => $messages,
