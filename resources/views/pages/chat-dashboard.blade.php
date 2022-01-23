@@ -233,43 +233,61 @@
             let chat_input = $('#chat-input');
             let conversations = $('.conversation');
 
+            socket.emit('user_connected', {{ $myInfo->id }});
+            console.log({{ $myInfo->id }})
+
             $(conversations).each(function( index, value ) {
                 $(conversations[index]).click(function (e){
-                    let users_chat = $('.to_user');
-                    let to_user = $(users_chat[index]).html();
-                    chat_active = to_user;
-                    let url = "chat/" + to_user ;
-
-                    console.log(to_user);
-                    console.log(url);
-
-                    $.ajax({
-                        url: url,
-                        type: 'GET',
-                        processData: false,
-                        contentType: false,
-                        dataType: 'JSON',
-                        contentType: "application/json",
-                        success: function (response) {
-                            if (response.success) {
-                                for (let index = 0; index < response.messages.length; index++) {
-                                    console.log('mensagem ' + index + ': ' + response.messages[index].content);
-                                }
-                            }
-                        },
-                        error: function(data) {
-                            var errors = data.responseJSON;
-                            console.log(errors);
-                        }
+                    
+                    $(conversations).each(function(index) { 
+                        $(conversations[index]).removeClass('bg-bro-darker'); 
                     });
+                    
+                    $(conversations[index]).addClass('bg-bro-darker');
+
+                    socket.on('receivedMessage', function(message){
+                        renderMessage(message);
+                    })
+
+                    chatIdentify(index);
                 });
             });
-            
+
+            function chatIdentify(index) {
+                let users_chat = $('.to_user');
+                let to_user = $(users_chat[index]).html();
+                chat_active = to_user;
+                let url = "chat/" + to_user ;
+                
+                console.log(to_user);
+                console.log(url);
+
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    processData: false,
+                    contentType: false,
+                    dataType: 'JSON',
+                    contentType: "application/json",
+                    success: function (response) {
+                        if (response.success) {
+                            for (let index = 0; index < response.messages.length; index++) {
+                                console.log('mensagem ' + index + ': ' + response.messages[index].content);
+                            }
+                        }
+                    },
+                    error: function(data) {
+                        var errors = data.responseJSON;
+                        console.log(errors);
+                    }
+                });
+            }
+
             chat_input.keypress(function (e){
                 let message = $(this).html();
                 console.log(message);
                 if(e.which === 13 && !e.shiftKey){
-                    socket.emit('sendMessageToServer', message);
+                    socket.emit('chatActive', chat_active, message);
                     chat_input.html('');
                     sendMessage(message);
                     return false;
@@ -286,7 +304,7 @@
                 formData.append('to_user_id', to_user_id);
                 formData.append('_token', token);
 
-                appendMessageToSender(message);
+                renderMessage(message);
 
                 $.ajax({
                     url: url,
@@ -308,7 +326,7 @@
 
             }
 
-            function appendMessageToSender(message){
+            function renderMessage(message){
 
                 var message_datetime = "{{ date('d/m/Y H:i') }}";
 
