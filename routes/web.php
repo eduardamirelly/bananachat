@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
     Route::post('send-message', [MessageController::class, 'sendMessage'])->name('message.send-message');
-    Route::get('list-messages', [MessageController::class, 'listMessages'])->name('message.list-messages');
+    Route::get('chat/{userId}', [MessageController::class, 'chat'])->name('message.chat');
 
 });
 
