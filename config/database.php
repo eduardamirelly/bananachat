@@ -91,11 +91,11 @@ return [
             'prefix_indexes' => true,
         ],
 
-        'mongodb' => [
-            'driver' => 'mongodb',
-            'dsn' => env('MONGO_URL', ''),
-            'database' => 'database_bananachat',
-        ],
+        // 'mongodb' => [
+        //     'driver' => 'mongodb',
+        //     'dsn' => env('MONGO_URL', ''),
+        //     'database' => 'database_bananachat',
+        // ],
 
     ],
 
