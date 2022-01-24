@@ -222,7 +222,6 @@
 @push('scripts')
 
     <script>
-
         $(function (){
             let user_id = '{{ auth()->user()->id }}';
             let ip_address = '127.0.0.1';
@@ -292,9 +291,9 @@
                 $('#chat-active').text(name_chat_active);
                 for (let index = 0; index < messages_chat.length; index++) {
                     if(messages_chat[index].from_user_id == {{ $myInfo->id }}){
-                        renderMessageFromMe(messages_chat[index].content, messages_chat[index].created_at);
+                        renderMessageFromMe(messages_chat[index].content, formatDate(messages_chat[index].created_at));
                     }else{
-                        renderMessageToMe(messages_chat[index].content, messages_chat[index].created_at);
+                        renderMessageToMe(messages_chat[index].content, formatDate(messages_chat[index].created_at));
                     }
                 }
             }
@@ -386,7 +385,17 @@
                 scrollDown();
             }
 
-
+            function formatDate(date) {
+                let date_obj = new Date(date);
+                let new_format_date = 
+                        (date_obj.getDate() < 10 ? '0' + date_obj.getDate() : date_obj.getDate()) + '/'
+                    +   (date_obj.getMonth()+1 < 10 ? '0' + (date_obj.getMonth()+1) : (date_obj.getMonth()+1)) + '/'
+                    +   (date_obj.getFullYear()) + ' '
+                    +   (date_obj.getHours() < 10 ? '0' + date_obj.getHours() : date_obj.getHours()) + ':'
+                    +   (date_obj.getMinutes() < 10 ? '0' + date_obj.getMinutes() : date_obj.getMinutes())
+                ;
+                return new_format_date;
+            }
         });
 
        
