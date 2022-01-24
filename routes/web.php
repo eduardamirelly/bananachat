@@ -17,6 +17,9 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/chatui', function(){
+    return view('pages.sidebar-contactdata');
+});
 
 
 Route::middleware(['auth'])->group(function (){

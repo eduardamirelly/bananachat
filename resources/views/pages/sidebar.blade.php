@@ -9,64 +9,38 @@
 
         <!-- SIDEBAR -->
         <div id="sidebar" class="sidebar bg-bro-dark">
-            
-            <!-- HEADER SIDEBAR -->
-            <div class="sidebar-header flex flex-wrap justify-between items-center px-8 pb-2 pt-6 shadow">
-                <div class="flex items-center px-3 py-2">
-                    <div id="div-arrow" class="mr-2">
-                        <a href="#" id="arrow">
-                            <img class="h-8 w-8" src="{{ asset('assets/arrow-left.png') }}" alt="user-profile">
-                        </a>
+            {{-- Profile indicator --}}
+            <div class="mt-12 ml-4 flex">
+                <a href=""><img src="assets/arrow-left.png" alt="left arrow" class="h-6"></a>
+                <h3 class="ml-2 poppins font-medium text-whi-yellow">Perfil</h3>
+            </div>
+            {{-- photo --}}
+            <div class="flex justify-center mt-8">
+                <img class="rounded-full w-44 h-44" src="https://suap.ifrn.edu.br/media/alunos/219829.5SDnHZVdjC7W.jpg" alt="profile-dev">
+            </div>
+            {{-- name --}}
+            <div class="flex justify-center mt-8">
+                <div class="shadow-2xl w-10/12 h-16">
+                    <div class="mt-2 ml-2 mr-2">
+                        <p class="poppins text-xs font-normal text-whi-yellow">Nome</p>
                     </div>
-                    <div class="mr-2">
-                        <img id="user-profile" class="rounded-full h-12 w-12" src="{{ asset('assets/Eduarda.jpg') }}" alt="user-profile">
-                    </div>
-                    <p class="text-whi-yellow font-regular text-sm sm:text-md">{{ $myInfo->name }}</p>
-                </div>
-                <div class="sidebar-buttons flex align-content-end items-center px-3 py-2">
-                    <div class="mr-4">
-                        <a href="#"><img class="w-4/5" src="{{ asset('assets/chat_logo.svg') }}"></a>
-                    </div>
-                    <div>
-                        <a><img class="w-4/5" src="{{ asset('assets/menu.svg') }}"></a>
+                    <div class="flex justify-between mt-2 ml-2 mr-2">
+                        <p class="poppins text-sm font-normal text-ye-light">João Vitor</p>
+                        <img src="assets/edit-text.svg" alt="edit name" class="h-4">
                     </div>
                 </div>
             </div>
-            <div class="sidebar-search flex px-8 py-4 shadow relative">
-                <input class="h-10 w-full bg-ye-light rounded-3xl px-4 text-bro-dark text-sm font-regular placeholder-bro-dark border-none focus:ring-whi-yellow" type="search" name="search" placeholder="Buscar...">
-                <button type="submit" class="absolute right-0 mr-7 w-10 h-10">
-                    <img src="/assets/lupe.svg">
-                </button>
-            </div>
-
-            <!-- CONVERSATION LIST -->
-            <div class="overflow-y-scroll scroll-base flex flex-col items-center divide-y-2 divide-bro-darker divide-opacity-25">
-
-                @foreach ($users as $user)
-                    <!-- CONVERSATION -->
-                    <div id="conversation" class="flex justify-between items-center w-full px-8 py-4 hover:bg-bro-darker cursor-pointer">
-                        <div class="flex items-center">
-                            <div class="relative mr-4">
-                                <div class="rounded-full h-14 w-14 bg-gr-light"></div>
-                                {{-- <img class="chat-profile rounded-full h-14 w-14" src="https://suap.ifrn.edu.br/media/alunos/219829.5SDnHZVdjC7W.jpg" alt="chat-profile"> --}}
-                                <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
-                            </div>
-                            <div>
-                                <p class="text-md text-whi-opaque">{{ $user->name }}</p>
-                                <input type="hidden" id="to_user" value="{{ $user->id }}">
-                                <p class="text-xs text-whi-opaque">última mensagem</p>
-                                <p class="text-xs text-whi-opaque">00:00</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-around items-center h-full">
-                            <div class="rounded-full h-5 w-5 mb-2 bg-ye-golden flex items-center justify-center p-2.5">
-                                <p class="text-xs font-medium text-bro-dark">10</p>
-                            </div>
-                            <div><img class="w-5" src="/assets/mute.svg"></div>
-                        </div>
+            {{-- description --}}
+            <div class="flex justify-center mt-4">
+                <div class="shadow-2xl w-10/12 h-16">
+                    <div class="mt-2 ml-2 mr-2">
+                        <p class="poppins text-xs font-normal text-whi-yellow">Bio</p>
                     </div>
-                @endforeach
-
+                    <div class="flex justify-between mt-2 ml-2 mr-2">
+                        <p class="poppins text-sm font-normal text-ye-light">Descrição</p>
+                        <img src="assets/edit-text.svg" alt="edit name" class="h-4">
+                    </div>
+                </div>
             </div>
         </div>
 
