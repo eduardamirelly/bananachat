@@ -52,7 +52,7 @@
                                 <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
                             </div>
                             <div>
-                                <p class="text-md text-whi-opaque">{{ $user->name }}</p>
+                                <p class="chat_name text-md text-whi-opaque">{{ $user->name }}</p>
                                 <p class="to_user" style="display: none;">{{ $user->id }}</p>
                                 <p class="text-xs text-whi-opaque">última mensagem</p>
                                 <p class="text-xs text-whi-opaque">00:00</p>
@@ -81,7 +81,7 @@
                             <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
                         </div>
                         <div>
-                            <h5 class="text-md font-medium text-bro-dark">-------</h5>
+                            <h5 id="chat-active" class="text-md font-medium text-bro-dark"></h5>
                             <p class="text-xs font-regular text-bro-dark">Offline</p>
                         </div>
                     </div>
@@ -229,12 +229,14 @@
             let socket_port = '3000';
             let socket = io(ip_address + ':' + socket_port);
             let chat_active = '';
+            let name_chat_active = '';
+            var message_datetime = "{{ date('d/m/Y H:i') }}";
 
             let chat_input = $('#chat-input');
             let conversations = $('.conversation');
+            let messages_chat_active = [];
 
             socket.emit('user_connected', {{ $myInfo->id }});
-            console.log({{ $myInfo->id }})
 
             $(conversations).each(function( index, value ) {
                 $(conversations[index]).click(function (e){
@@ -246,17 +248,20 @@
                     $(conversations[index]).addClass('bg-bro-darker');
 
                     socket.on('receivedMessage', function(message){
-                        renderMessage(message);
+                        renderMessageToMe(message, message_datetime);
                     })
 
                     chatIdentify(index);
+                    
                 });
             });
 
             function chatIdentify(index) {
                 let users_chat = $('.to_user');
+                let name_users_chat = $('.chat_name');
                 let to_user = $(users_chat[index]).html();
                 chat_active = to_user;
+                name_chat_active = $(name_users_chat[index]).html();
                 let url = "chat/" + to_user ;
                 
                 console.log(to_user);
@@ -271,16 +276,27 @@
                     contentType: "application/json",
                     success: function (response) {
                         if (response.success) {
-                            for (let index = 0; index < response.messages.length; index++) {
-                                console.log('mensagem ' + index + ': ' + response.messages[index].content);
-                            }
+                            previousMessages(response.messages_chat);
                         }
+                        console.log(response.messages_chat);
                     },
                     error: function(data) {
                         var errors = data.responseJSON;
                         console.log(errors);
                     }
                 });
+            }
+
+            function previousMessages(messages_chat){
+                $('.chat-messages').html('');
+                $('#chat-active').text(name_chat_active);
+                for (let index = 0; index < messages_chat.length; index++) {
+                    if(messages_chat[index].from_user_id == {{ $myInfo->id }}){
+                        renderMessageFromMe(messages_chat[index].content, messages_chat[index].created_at);
+                    }else{
+                        renderMessageToMe(messages_chat[index].content, messages_chat[index].created_at);
+                    }
+                }
             }
 
             chat_input.keypress(function (e){
@@ -304,7 +320,7 @@
                 formData.append('to_user_id', to_user_id);
                 formData.append('_token', token);
 
-                renderMessage(message);
+                renderMessageFromMe(message, message_datetime);
 
                 $.ajax({
                     url: url,
@@ -325,11 +341,18 @@
                 });
 
             }
+            
+            function scrollDown() {
+                var height = 0;
+                $('.message').each(function(i, value){
+                    height += parseInt($(this).height());
+                });
 
-            function renderMessage(message){
+                height += '';
+                $('.chat-messages').scrollTop(height);
+            }
 
-                var message_datetime = "{{ date('d/m/Y H:i') }}";
-
+            function renderMessageFromMe(message, message_datetime){
                 $('.chat-messages').append
                 (`
             
@@ -343,6 +366,24 @@
                     </div> 
                 
                 `);
+                scrollDown();
+            }
+
+            function renderMessageToMe(message, message_datetime){
+                $('.chat-messages').append
+                (`
+            
+                    <div class="message mt-2 self-start">
+                        <div class="bg-gr-dark p-3 rounded-bl-none rounded-lg flex flex-col">
+                            <p class="text-sm-1 font-regular text-whi-opaque">${message}</p>
+                            <div class="mt-2 self-end">
+                                <p class="text-xs font-light text-whi-opaque">${message_datetime}</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                `);
+                scrollDown();
             }
 
 

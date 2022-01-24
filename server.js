@@ -19,7 +19,6 @@ io.on('connection', function (socket){
     });
 
     socket.on('chatActive', function(userId, message) {
-
        socket.broadcast.to(users[userId]).emit('receivedMessage', message);
     });
 

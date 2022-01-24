@@ -28,11 +28,27 @@ class MessageController extends Controller
         ]);
     }
 
-    public function listMessages($userId){
-        $messages = Message::where('to_user_id', $userId)->orderBy('created_at', 'ASC')->get();
+    public function chat($userId){
+        $messages_chat = Message::where([
+            ['from_user_id', '=', Auth::id()],
+            ['to_user_id', '=', $userId]
+        ])->orWhere([
+            ['from_user_id', '=', $userId],
+            ['to_user_id', '=', Auth::id()]
+        ])->orderBy('created_at', 'ASC')->get();
+    
+        //pegar as mensagens entre o usuário logado e o chat clicado
+
+        //pegar as mensagens que o usuário autenticado enviou para tal chat
+        //pegar as mensagens que o usuário autenticado recebeu de tal chat
+
+        // $mes = Message::where(function($query, $userId) {
+        //     $query->where(['from_user_id' => Auth::id()])
+        //           ->where(['to_user_id' => $userId]);
+        // })->orderBy('created_at', 'ASC')->get();
 
         return response()->json([
-            'messages' => $messages,
+            'messages_chat' => $messages_chat,
             'success' => true,
         ]);
     }
