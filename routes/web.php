@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/chatui', function(){
+    return view('pages.sidebar-contactdata');
 });
 
-Route::get('/tr', function () {
-    return view('pages/login');
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+
+    Route::post('send-message', [MessageController::class, 'sendMessage'])->name('message.send-message');
+    Route::get('chat/{userId}', [MessageController::class, 'chat'])->name('message.chat');
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+//lembra de pôr o verified
 
 require __DIR__.'/auth.php';

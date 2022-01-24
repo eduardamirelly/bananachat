@@ -1,120 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* ------------- INDEX SECTION INTRO ------------- */
 
-*{
-    box-sizing: border-box;
+#intro .navbar .navbar-brand a img{
+    width: 3rem;
+}
+#intro .navbar .navbar-toggle a img, .navbar .navbar-links a img{
+    width: 3rem;
+}
+#intro .circle-intro{
+    width: 25rem;
+    height: 25rem;
 }
 
-img{
-    object-fit: cover;
+/* ------------- LOGIN, REGISTER, FORGOT PASSWORD, VERIFY EMAIL... ------------- */
+
+.block-fluid{
+    min-height: 100vh;
 }
 
-.height-9{
-    height: 9%;
-}    
+/* ------------- CHAT DASHBOARD ------------- */
 
-.height-14{
-    height: 14%;
+
+
+#chat{
+    min-height: 100vh;
 }
-
-.height-77{
-    height: 77%;
+#chat .sidebar{
+    /* width: 35rem; */
+    min-width: 24rem;
 }
-
-.width-textInput{
-    width: 90%;
+#chat .chat-body{
+    /* min-width: 17rem; */
+    width: 100%;
 }
-
-.width-send{
-    width: 4.2rem;
-}
-
-input[type="search"]::-webkit-search-cancel-button{
+.chat-dropdown{
+    right: 5rem !important;
+    top: 5.5rem;
     display: none;
 }
-
-/* width */
-.scroll-base::-webkit-scrollbar {
+.chat-dropdown.show{
+    display: block;
+}
+#chat .sidebar #div-arrow{
+    display: none;
+}
+#chat .chat-body .chat-messages{
+    min-height: 30vh;
+    height: 70vh;
+}
+#chat .chat-body .chat-messages .message{
+    max-width: 45%;
+}
+#chat-send{
+    height: 2.5rem;
+}
+#chat-input{
+    width: 90%;
+    min-height: 2.5rem;
+    max-height: 3.5rem;
+    border-radius: 5px;
+    padding: .5rem;
+    outline: 0px solid transparent;
+}
+#chat-input::-webkit-scrollbar{
     width: 8px;
 }
-  
-/* Track */
-.scroll-base::-webkit-scrollbar-track {
-    background: #744102; 
+#chat-input::-webkit-scrollbar-track{
+    background-color: #E8C16F; 
 }
-   
-/* Handle */
-.scroll-base::-webkit-scrollbar-thumb {
-    background: #583001; 
+#chat-input::-webkit-scrollbar-thumb{
+    background-color: #E3AD46;
 }
-  
-  /* Handle on hover */
-.scroll-base::-webkit-scrollbar-thumb:hover {
-    background: #311B01; 
+#chat-input::-webkit-scrollbar-thumb:hover{
+    background-color: #583001;
 }
 
-/* width */
-.scroll-chat::-webkit-scrollbar {
+#chat .chat-body .chat-messages::-webkit-scrollbar{
     width: 8px;
 }
-  
-/* Track */
-.scroll-chat::-webkit-scrollbar-track {
-    background: #F1E3B6; 
+#chat .chat-body .chat-messages::-webkit-scrollbar-track{
+    background-color: #F1E3B6; 
 }
-   
-/* Handle */
-.scroll-chat::-webkit-scrollbar-thumb {
-    background: #F1E3B6; 
+#chat .chat-body .chat-messages::-webkit-scrollbar-thumb{
+    background-color: #F1E3B6;
 }
-  
-  /* Handle on hover */
-.scroll-chat::-webkit-scrollbar-thumb:hover {
-    background: #E8C16F; 
-}
-
-/* MEDIA QUERIES */
-
-@media screen and (max-height: 650px) {
-    #content-block{
-        min-height: 600px;
-    }
-    .content{
-        height: 500px;
-    }
-    .content-register{
-        height: 550px;
-    }
-}
-
-@media screen and (min-height: 1200px) {
-    .content{
-        height: 60%;
-        width: 40% !important;
-    }
-}
-
-
-/* CUSTOM FONT WEIGHT IN WELCOME PAGE */
-
-#w600{
-    font-style: 'normal';
-    font-weight: 600;
-}
-#w400{
-    font-style: 'normal';
-    font-weight: 400;
-}
-#w300{
-    font-style: 'normal';
-    font-weight: 300;
-}
-
-@media screen and (max-width: 640px) {
-    .bananachat_nav_welcome{
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .bananachat_logo_nav{
-        margin-top: 2rem;
-    }
+#chat .chat-body .chat-messages::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(227, 173, 70, .5);
 }

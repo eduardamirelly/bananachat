@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+body{
+    background-color: #F1E3B6;
+    min-height: 100vh;
+}
+img{
+    object-fit: cover;
+}
+input[type="search"]::-webkit-search-cancel-button{
+    display: none;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #E8C16F;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #583001;    /* color of the scroll thumb */
+}
+
+/* width */
+.scroll-base::-webkit-scrollbar {
+    width: 8px;
+}
+/* Track */
+.scroll-base::-webkit-scrollbar-track {
+    background: #744102; 
+}
+/* Handle */
+.scroll-base::-webkit-scrollbar-thumb {
+    background: #583001; 
+}
+/* Handle on hover */
+.scroll-base::-webkit-scrollbar-thumb:hover {
+    background: #311B01; 
+}
+
+/* width */
+.scroll-chat::-webkit-scrollbar {
+    width: 8px;
+}
+/* Track */
+.scroll-chat::-webkit-scrollbar-track {
+    background: #F1E3B6; 
+}
+/* Handle */
+.scroll-chat::-webkit-scrollbar-thumb {
+    background: #F1E3B6; 
+}
+  /* Handle on hover */
+.scroll-chat::-webkit-scrollbar-thumb:hover {
+    background: #E8C16F; 
+}
