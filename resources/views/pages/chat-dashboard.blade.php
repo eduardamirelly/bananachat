@@ -226,7 +226,7 @@
             let user_id = '{{ auth()->user()->id }}';
             let ip_address = '127.0.0.1';
             let socket_port = '3000';
-            let socket = io('banana-chat-web.herokuapp.com');
+            let socket = io('127.0.0.1:3000' || 'banana-chat-web.herokuapp.com:3000');
             let chat_active = '';
             let name_chat_active = '';
             var message_datetime = "{{ date('d/m/Y H:i') }}";
