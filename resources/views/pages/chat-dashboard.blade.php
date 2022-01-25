@@ -233,6 +233,7 @@
             var message_datetime = "{{ date('d/m/Y H:i') }}";
 
             let chat_input = $('#chat-input');
+            let chat_send = $('#chat-send');
             let conversations = $('.conversation');
             let messages_chat_active = [];
 
@@ -298,6 +299,14 @@
                     }
                 }
             }
+
+            chat_send.click(function (e){
+                let message = $(this).html();
+                socket.emit('chatActive', chat_active, message);
+                chat_input.html('');
+                sendMessage(message);
+                return false;
+            });
 
             chat_input.keypress(function (e){
                 let message = $(this).html();
