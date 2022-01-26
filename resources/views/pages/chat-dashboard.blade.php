@@ -300,11 +300,10 @@
                 }
             }
 
-            chat_send.click(function (e){
-                let message = $(this).html();
-                socket.emit('chatActive', chat_active, message);
-                chat_input.html('');
-                sendMessage(message);
+            chat_send.click(function (){
+                let message = chat_input.html();
+                if(message != '')
+                    emitMessage(message);
                 return false;
             });
 
@@ -312,12 +311,18 @@
                 let message = $(this).html();
                 console.log(message);
                 if(e.which === 13 && !e.shiftKey){
-                    socket.emit('chatActive', chat_active, message);
                     chat_input.html('');
-                    sendMessage(message);
+                    if(message != '')
+                        emitMessage(message);
                     return false;
                 }
             });
+
+            function emitMessage(message){
+                socket.emit('chatActive', chat_active, message);
+                chat_input.html('');
+                sendMessage(message);
+            }
 
             function sendMessage(message){
                 let url = "{{ route('message.send-message') }}";
