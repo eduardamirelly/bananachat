@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+
 var server = require('http').createServer(app);
 
 const io = require('socket.io')(server, {
@@ -22,24 +23,13 @@ io.on('connection', function (socket){
        socket.broadcast.to(users[userId]).emit('receivedMessage', message);
     });
 
-    // socket.on('sendMessageToServer', (message) => {
-    //     console.log(message);
-
-    //     // messages.push(message);
-    //     socket.broadcast.emit('receivedMessage', message);
-
-        
-    //     // socket.emit('sendChatToClient', message);
-    // });
-
-
     socket.on('disconnect', function (){
         console.log('disconnect');
     });
 });
 
 
-server.listen(3000, function() {
+server.listen(process.env.PORT || 3000, function() {
     console.log('Na escuta, porta 3000!');
 });
 

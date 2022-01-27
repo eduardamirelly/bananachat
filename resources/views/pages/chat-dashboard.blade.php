@@ -19,7 +19,8 @@
                         </a>
                     </div>
                     <div class="mr-2">
-                        <img id="user-profile" class="rounded-full h-12 w-12" src="{{ asset('assets/Eduarda.jpg') }}" alt="user-profile">
+                        <!-- <img id="user-profile" class="rounded-full h-12 w-12" src="{{ asset('assets/Eduarda.jpg') }}" alt="user-profile"> -->
+                        <div class="rounded-full h-12 w-12 bg-bro-medium"></div>
                     </div>
                     <p class="text-whi-yellow font-regular text-sm sm:text-md">{{ $myInfo->name }}</p>
                 </div>
@@ -47,7 +48,7 @@
                     <div class="conversation flex justify-between items-center w-full px-8 py-4 hover:bg-bro-darker cursor-pointer">
                         <div class="flex items-center">
                             <div class="relative mr-4">
-                                <div class="rounded-full h-14 w-14 bg-gr-light"></div>
+                                <div class="rounded-full h-14 w-14 bg-gr-dark"></div>
                                 {{-- <img class="chat-profile rounded-full h-14 w-14" src="https://suap.ifrn.edu.br/media/alunos/219829.5SDnHZVdjC7W.jpg" alt="chat-profile"> --}}
                                 <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
                             </div>
@@ -58,12 +59,12 @@
                                 <p class="text-xs text-whi-opaque">00:00</p>
                             </div>
                         </div>
-                        <div class="flex flex-col justify-around items-center h-full">
+                        {{-- <div class="flex flex-col justify-around items-center h-full">
                             <div class="rounded-full h-5 w-5 mb-2 bg-ye-golden flex items-center justify-center p-2.5">
                                 <p class="text-xs font-medium text-bro-dark">10</p>
                             </div>
                             <div><img class="w-5" src="/assets/mute.svg"></div>
-                        </div>
+                        </div> --}}
                     </div>
                 @endforeach
 
@@ -76,7 +77,7 @@
                 <div class="chat-header flex flex-wrap justify-around sm:justify-between items-center pb-2 border-solid border-b border-bro-dark">
                     <div class="py-2 sm:pr-8 flex items-center flex-wrap">
                         <div class="relative mr-4">
-                            <div class="rounded-full h-14 w-14 bg-gr-light"></div>
+                            <div class="rounded-full h-14 w-14 bg-gr-dark"></div>
                             {{-- <img class="rounded-full h-14 w-14" src="https://suap.ifrn.edu.br/media/alunos/219829.5SDnHZVdjC7W.jpg" alt="chat-profile"> --}}
                             <div class="absolute bottom-0 right-0 bg-gray-400 rounded-full h-4 w-4"></div>
                         </div>
@@ -226,12 +227,13 @@
             let user_id = '{{ auth()->user()->id }}';
             let ip_address = '127.0.0.1';
             let socket_port = '3000';
-            let socket = io(ip_address + ':' + socket_port);
+            let socket = io('127.0.0.1:3000' || '');
             let chat_active = '';
             let name_chat_active = '';
             var message_datetime = "{{ date('d/m/Y H:i') }}";
 
             let chat_input = $('#chat-input');
+            let chat_send = $('#chat-send');
             let conversations = $('.conversation');
             let messages_chat_active = [];
 
@@ -298,16 +300,29 @@
                 }
             }
 
+            chat_send.click(function (){
+                let message = chat_input.html();
+                if(message != '')
+                    emitMessage(message);
+                return false;
+            });
+
             chat_input.keypress(function (e){
                 let message = $(this).html();
                 console.log(message);
                 if(e.which === 13 && !e.shiftKey){
-                    socket.emit('chatActive', chat_active, message);
                     chat_input.html('');
-                    sendMessage(message);
+                    if(message != '')
+                        emitMessage(message);
                     return false;
                 }
             });
+
+            function emitMessage(message){
+                socket.emit('chatActive', chat_active, message);
+                chat_input.html('');
+                sendMessage(message);
+            }
 
             function sendMessage(message){
                 let url = "{{ route('message.send-message') }}";
